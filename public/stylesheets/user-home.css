@@ -1,0 +1,36 @@
+#showcase{
+    background-color: #f5dfdc;
+    
+}
+#showcase_text{
+    margin-top: 120px !important;
+}
+#showcase_text h6{
+    font-size: 1em;
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #f52b07;
+    padding: .5em;
+    border-radius: 20px;
+}
+#showcase_text h1{
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+#showcase_text h5{
+    font-size: 2em;
+}
+.title-content .sub-title{
+    font-size: 17px;
+    color: #999;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.title-content .big-title{
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 42px;
+    margin-bottom: 20px;
+}
