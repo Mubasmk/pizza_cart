@@ -27,14 +27,111 @@
 
 <div class="container">
     <div class="row">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="/images/pizza_slide.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+        {{#each products}}
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="card item-card" style="width: 22rem;">
+                <img class="card-img-top mb-3" src="/images/{{this._id}}.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title text-center">{{this.Title}} {{this.Item}}</h4>
+                    <h5 class="text-center mb-5">({{this.Category}})</h5>
+                    <h5 class="ml-2" style="display: inline-block;"><b>₹ {{this.Price}}/-</b></h5>
+                    <a href="#" class="btn float-right mr-2" style="display: inline-block;">+ Add</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<section class="about-us mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="about-title">We make the Best Pizza in your Town</h3>
+                <h5 class="about-subTitle mt-2">Having that crispy and melty pizza in the comfort of your own home with
+                    the
+                    ones you love, we say.</h5>
+                <p class="about-para text-justify">No matter what the situation, pizza always helps. Especially a pizza that gives
+                    you the freedom to choose your toppings - from paneer, crisp capsicum, onion, grilled mushroom,
+                    golden corn, black olives, fresh tomato, red paprika, jalapeno, paneer tikka and extra cheese to
+                    non-veg toppings such as pepper barbeque chicken, peri-peri chicken, grilled chicken rasher, chicken
+                    sausage or chicken tikka- the options are almost endless, anything and everything you can think of
+                    that too on top of the crust of your choice - New hand-tossed crust, wheat thin crust, cheese burst
+                    crust, classic hand-tossed crust or a fresh pan pizza. Because just like a pizza, Pizza Hut
+                    understands you.</p>
+
+                <a href="#" class="btn">Know more about us</a>
+            </div>
+            <div class="col-lg-6 mt-5 icon-about">
+                <div class="row">
+                    <div class="col-6">
+                      <div class="icon ml-5">
+                            <img src="/images/pizza_icon.png" style="width: 32px;height: 32px;" alt="">
+                        </div>
+                    <h4 class="mb-5 ml-3">Right food baked with natural ingredient</h4>
+                    </div>
+                    <div class="col-6">
+                        <div class="icon ml-5">
+                            <img src="/images/burger_icon.png" style="width: 32px;height: 32px;" alt="">
+                        </div>
+                    <h4 class="mb-5 ml-3">The use of natural best quality products</h4>
+                    </div>
+                    <div class="col-6">
+                        <div class="icon ml-5">
+                            <img src="/images/burgernddring_icon.png" style="width: 32px;height: 32px;" alt="">
+                        </div>
+                    <h4 class="ml-3">World's best chef and Nutritionist!</h4>
+                    </div>
+                    <div class="col-6">
+                        <div class="icon ml-5">
+                            <img src="/images/delivery_icon.png" style="width: 32px;height: 32px;" alt="">
+                        </div>
+                    <h4 class="ml-3">Fastest delivery on your door step</h4>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+
+<footer class="mainFooter" role="contentinfo">
+    <div class="footer-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Address</h4>
+                        <p>Pizza Hut</p>
+                        <p>Thazhechovva,kannur</p>
+                        <p>Kerala,pin:670003</p>
+                        <p>pizzahutknr@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Opening Hours</h4>
+                        <p>Monday-Friday</p>
+                        <p>09.00 am - 10.00 pm</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Book a Table</h4>
+                        <p>Eating Hot and Spicy Pizza is best thing to consider</p>
+                        <p>+91 8848474156</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Address</h4>
+                        <p>Pizza Hut</p>
+                        <p>Thazhechovva,kannur</p>
+                        <p>Kerala,pin:670003</p>
+                        <p>pizzahutknr@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,48 @@
+<section>
+    <div class="container">
+        <form action="/admin/add-products" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="">product title</label>
+            <input type="text" name="Title" id="" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label for="">Item</label>
+            <select name="Item" id="">
+                <option>Pizza</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Category</label>
+            <select name="Category" id="">
+                <option>VEG</option>
+                <option>NON VEG</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Variety</label>
+            <select name="Variety" id="">
+                <option>Italian</option>
+                <option>Fusion</option>
+                <option>Continental</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Price</label>
+            <input type="number" name="Price" id="" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label for="">Description</label>
+            <input type="text" name="Description" id="" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label for="">Ingredients</label>
+            <input type="text" name="Ingredients" id="" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label for="">Image</label>
+            <input type="file" name="Image" id="" class="form-control" >
+        </div>
+        <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+    </div>
+</section>

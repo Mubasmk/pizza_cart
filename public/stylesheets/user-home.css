@@ -34,3 +34,76 @@
     line-height: 42px;
     margin-bottom: 20px;
 }
+.item-card{
+    height: 450px;
+    margin-top: 40px;
+    border-radius: 20px;
+    margin-bottom: 80px;
+}
+.item-card img{
+    border-radius: 20px 20px 0px 0px;
+}
+.item-card h4{
+    font-size:21px;
+    font-weight: 600;
+}
+.item-card a{
+    border-color: #dc3545;
+    color: #dc3545;
+    border-radius: 25px;
+}
+.item-card a:hover{
+    background-color: #dc3545;
+    color: white;
+}
+.about-us{
+    margin-bottom: 100px;
+}
+.about-us .about-title{
+    font-size: 50px;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.about-us .about-subTitle{
+    font-size: 24px;
+    line-height: 30px;
+    color: #999;
+}
+.about-us a{
+    border-color: #dc3545;
+    color: #dc3545;
+    font-weight: 600;
+    border-radius: 10px;
+}
+.about-us a:hover{
+    background-color: #dc3545;
+    color: white;
+}
+.icon-about .icon{
+    background-color:#f5dfdc ;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    margin-bottom: 15px;
+    display: block;
+    
+}
+.icon-about h4{
+    font-size: 20px;
+    font-weight: 600;
+}
+.mainFooter{
+    background-color: #16222A;
+    color: white;
+    margin-top: 100px;
+}
+.footer-middle{
+    padding-top: 2em;
+    color: white;
+}
+.footer-pad p{
+    margin-bottom: 0;
+}
