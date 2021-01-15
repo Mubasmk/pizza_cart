@@ -24,11 +24,37 @@
 
 
 @media only screen and (max-width:450px){
-    #nav-title{
+    .nav-title{
     font-size: 2em;
     margin-top: auto;
     }
-    #nav-title img{
+    .nav-title img{
         display: none !important;
+    }
+    .navbar button{
+        font-size: 15px;
+    }
+    #cart-icon{
+        width: 50px;
+        height: 30px;
+    }
+    #cart-icon i{
+        font-size: 20px;
+        position: relative;
+        top: 5px;
+    }
+}
+@media only screen and (min-width:426px) and (max-width:575px){
+    #cart-icon{
+        margin-right: 10px;
+    }
+    .navbar button{
+        margin-left: 110px;
+    }
+}
+@media only screen and (min-width:576px) and (max-width:992px){
+    .navbar button{
+        margin-left: auto;
+        margin-right: 10px;
     }
 }
