@@ -6,6 +6,8 @@ var logger = require('morgan');
 var hbs=require('express-handlebars');
 var fileUpload=require('express-fileupload');
 var db=require('./config/connection');
+var session=require('express-session');
+
 var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
 
@@ -26,6 +28,7 @@ db.connect((err)=>{
   if(err) console.log("Connection error");
   else console.log("Database connected");
 });
+app.use(session({secret:"Key",cookie:{maxAge:600000}}));
 
 app.use('/admin', adminRouter);
 app.use('/', usersRouter);

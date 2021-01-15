@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="/stylesheets/user-auth.css">
+
+<section>
+    <div class="wrapper fadeInDown">
+            <div id="formContent">
+        <div class="container p-4">
+            <div class="fadeIn first">
+                <img src="/images/pizza_hut_logo-removebg.png" id="icon" alt="brand logo">
+                <h2 id="logo-head">Pizza Hub</h2>
+            </div>
+
+            <form action="/signup" method="POST" onsubmit="return validation()">
+                <h3 id="loginTitle">Create Account</h3>
+                <div class="form-group">
+                    <input type="text" name="user-name" class="fadeIn login-input text-center" placeholder="name" >
+                </div>
+                <div class="form-group">
+                    <input type="email" name="Email" onblur="validateEmail(this);" class="fadeIn login-input text-center" id="email" placeholder="email" >
+                    <br><span id="email-msg" class="text-danger"></span><br>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="Password" class="fadeIn login-input text-center" id="password" placeholder="password" >
+                    <br><span id="pass-msg" class="text-danger"></span><br>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="confirm-password" class="fadeIn login-input text-center" id="confirm-password" placeholder="confirm password" >
+                    <br><span id="verPass-msg" class="text-danger"></span><br>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="mobile" class="fadeIn login-input text-center" id="mobile" placeholder="mobile" >
+                </div>
+                <input type="submit" class="fadeIn" value="Sign up">
+            </form>
+        </div>
+            <div id="login-footer">
+                <a href="/login" class="underlineHover" style="color: #f52b07;">Already have an account ?</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    function validation(){
+        var pw=document.getElementById("password").value;
+        var verpw=document.getElementById("confirm-password").value;
+        var email=document.getElementById('email').value;
+        
+        {{!-- check empty password field --}}
+        if(pw==""){
+            document.getElementById("pass-msg").innerHTML="pill the password !";
+            return false;
+        }
+        {{!-- minimum length of password validation --}}
+        if(pw.length<8){
+            document.getElementById('pass-msg').innerHTML="password length must be atleat 8 characters !";
+            return false;
+        }
+        {{!-- maximum length of password validation --}}
+        if(pw.length>15){
+            document.getElementById('pass-msg').innerHTML="password length must not exceed 15 characters !";
+            return false; 
+        }
+        if (pw!==verpw){
+            document.getElementById('verPass-msg').innerHTML="password doesn't match";
+            return false;
+        }
+        if(email==""){
+            document.getElementById('email-msg').innerHTML="email required";
+            return false;
+        }
+    }
+    function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        var email=document.getElementById('email').value;
+
+        if (reg.test(emailField.value) == false) 
+        {
+            document.getElementById("email-msg").innerHTML="invalid email address";
+            return false;
+        }
+        return true;
+
+}
+</script>

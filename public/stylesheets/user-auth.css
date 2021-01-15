@@ -31,6 +31,13 @@ a {
     width: 100%;
     min-height: 100%;
     padding: 20px;
+    position: relative;
+    animation: mymove 1s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes mymove{
+    from {top: -130px;}
+    to {top: 30px;}
   }
   
   #formContent {
@@ -70,4 +77,47 @@ a {
 #loginTitle{
     font-size: 2em;
     margin: 10px 0;
+}
+.login-input{
+  background-color: #f6f6f6 !important;
+  color: #0d0d0d !important;
+  padding: 15px 32px;
+  border: none;
+  border-radius: 7px;
+  width: 95%;
+}
+input[type=submit]{
+  background-color: #f52b07;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-radius: 7px;
+}
+input[type=submit]:hover{
+  background-color: #d42b0e;
+}
+.underlineHover::after{
+  display: block;
+  left: 0px;
+  bottom: -10px;
+  width: 0px;
+  height: 2px;
+  background-color: #f52b07;
+  content: "";
+  transition: width 0.2s;
+}
+.underlineHover:hover::after{
+  width: 100%;
+}
+#login-footer{
+  background-color: #f6f6f6;
+  border-top: 1px solid #dce8f1;
+  padding: 25px;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
 }

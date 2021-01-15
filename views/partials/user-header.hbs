@@ -15,9 +15,15 @@
       <li class="nav-item">
         <a class="nav-link" href="#">My Orders</a>
       </li>
+      {{#if user}}
       <li class="nav-item">
-         <a class="nav-link" href="#">Login</a>
+         <a class="nav-link" href="/logout">Logout</a>
       </li>
+      {{else}}
+      <li class="nav-item">
+         <a class="nav-link" href="/login">Login</a>
+      </li>
+      {{/if}}
     </ul>
   </div>
   <div id="cart-icon">
