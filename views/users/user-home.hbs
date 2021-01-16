@@ -38,7 +38,8 @@
                     <h4 class="card-title text-center">{{this.Title}} {{this.Item}}</h4>
                     <h5 class="text-center mb-5">({{this.Category}})</h5>
                     <h5 class="ml-2" style="display: inline-block;"><b>₹ {{this.Price}}/-</b></h5>
-                    <a href="#" class="btn float-right mr-2" style="display: inline-block;">+ Add</a>
+                    <button onclick="addToCart('{{this._id}}')" class="btn float-right mr-2" style="display: inline-block;">+
+                        Add</button>
                 </div>
             </div>
         </div>
@@ -143,13 +144,12 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-md-12 copyright">
-                    <p class="text-center">© Copyright 2021 - Pizza Hub.  All rights reserved.</p>
+                    <p class="text-center">© Copyright 2021 - Pizza Hub. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </div>
 </footer>
-
