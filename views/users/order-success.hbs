@@ -4,14 +4,16 @@
     <div class="wrapper fadeInDown">
             <div id="formContent">
         <div class="container p-4 mb-0">
-            
-            <h3 class="text-muted">OOPS !!</h3><hr>
-           <h6 class="text-muted">Your Cart is Empty</h6> 
+            <h4 class="fa fa-check p-2 check-logo"></h4>
+            <h5 class="text-success">Order placed successfully !</h5><hr>
+           <h6 class="mt-4 mb-4">Your order number is <span class="text-danger">#542652</span></h6><hr>
+           <p class="email-confirmation">you'll receive an email confirmation shortly to <span class="text-success"><b>{{email}}</b></span></p>
         </div>
            
 
             <div id="login-footer">
-                <a href="/" class="underlineHover" style="color: #f52b07;">Continue Shopping</a>
+                <a href="/" class="underlineHover" style="color: #f52b07;">Continue Shopping</a><br>
+                <a href="/" class="underlineHover mt-3" style="color: #f52b07;">View Orders</a>
             </div>
         </div>
     </div>
@@ -70,3 +72,12 @@
         </div>
     </div>
 </footer>
+<style>
+    .check-logo{
+        margin: 0px 0 10px 0;
+        font-size: 16px; 
+        border: 5px solid rgb(10, 190, 10);
+        color: rgb(10, 190, 10); 
+        border-radius: 50%;
+    }
+</style>

@@ -85,17 +85,30 @@ router.post('/change-product-quantity',(req,res)=>{
     res.json(response);
   });
 });
-
-router.get('/place-order',verifyLogin,async(req,res)=>{
-  let products=await userHelper.getCartProducts(req.session.user._id);
-  let total=await userHelper.getTotalAmount(req.session.user._id);
-  res.render('users/place-order',{total,user:req.session.user})
-});
-
 router.post('/remove-cart-item',(req,res)=>{
   userHelper.deleteCartItem(req.body).then((response)=>{
     res.json(response)
   });
 });
+
+router.get('/place-order',verifyLogin,async(req,res)=>{
+  
+  let total=await userHelper.getTotalAmount(req.session.user._id);
+  res.render('users/place-order',{total,user:req.session.user})
+});
+
+router.post('/place-order',async(req,res)=>{
+  req.body.userId=req.session.user._id;
+  let products=await userHelper.getCartProductList(req.body.userId);
+  let totalPrice=await userHelper.getTotalAmount(req.body.userId);
+  userHelper.placeOrder(req.body,products,totalPrice).then((response)=>{
+    res.json({status:true});
+  });
+});
+
+router.get('/order-success',(req,res)=>{
+  let email=req.session.user.Email;
+  res.render('users/order-success',{email,user:req.session.user});
+})
 
 module.exports = router;

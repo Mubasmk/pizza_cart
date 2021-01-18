@@ -14,7 +14,7 @@ function addToCart(proId) {
                 setTimeout(function () {
                     $(".notify").removeClass("active");
                     $("#notifyType").removeClass("success");
-                }, 3000);
+                }, 2000);
             }
         }
     }

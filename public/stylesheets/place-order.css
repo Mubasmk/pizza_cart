@@ -80,3 +80,20 @@ input[type=submit]{
 input[type=submit]:hover{
   background-color: #d42b0e;
 }
+.form-group select {
+  text-align: center;
+  width: 100%;
+  text-align-last: center;
+  color: #999;
+}
+
+.form-group select option {
+  color: grey !important;
+  font-size: 14px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

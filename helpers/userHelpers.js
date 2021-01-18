@@ -199,6 +199,39 @@ module.exports = {
                 }
             }).then((response)=>{
                 resolve({removeCartItem:true})
+            });
+        });
+    },
+    getCartProductList:(userId)=>{
+        return new Promise(async(resolve,reject)=>{
+            let cart=await db.get().collection(collection.CART_COLLECTION).findOne({user:objectId(userId)});
+            resolve(cart.products);
+        });
+    },
+    placeOrder:(order,products,total)=>{
+        return new Promise((resolve,reject)=>{
+            console.log(order,products,total);
+            let status=order['payment-method']==='COD'?'place':'pending';
+            let d=new Date();
+            let orderObj={
+                deliveryDetails:{
+                    Name:order.delName,
+                    Address:order.delAddress,
+                    City:order.delCity,
+                    Pincode:order.delPincode,
+                    Landmark:order.delLandmark,
+                    Mobile:order.delMobile
+                },
+                userId:objectId(order.userId),
+                paymentMethod:order['payment-method'],
+                products:products,
+                totalAmount:total,
+                status:status,
+                date:d.toLocaleDateString()
+            }
+            db.get().collection(collection.ORDER_COLLECTION).insertOne(orderObj).then((response)=>{
+                db.get().collection(collection.CART_COLLECTION).removeOne({user:objectId(order.userId)});
+                resolve();
             })
         })
     }

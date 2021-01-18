@@ -29,6 +29,69 @@
 .nav-link{
     padding: 0;
 }
+.mainFooter{
+    background-color: #16222A;
+    color: white;
+    margin-top: 100px;
+}
+.footer-middle{
+    padding-top: 2em;
+    color: white;
+}
+.footer-pad p{
+    margin-bottom: 0;
+}
+.social-btns{
+    height: 20px;
+    margin: auto;
+    font-size: 0;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 110px;
+    bottom: 0;
+}
+.social-btns .btn{
+    display: inline-block;
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 25px;
+    margin: 0 6px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 28%;
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+    opacity: 0.99;
+}
+.social-btns .btn.facebook .fa{
+    color: #3b5998;
+}
+.social-btns .btn.linkedin .fa{
+    color: #3cf;
+}
+.social-btns .btn.instagram .fa{
+    color: #f26798;
+}
+.social-btns .facebook:hover{
+    background-color: #3b5998;
+}
+.social-btns .linkedin:hover{
+    background-color: #3cf;
+}
+.social-btns .instagram:hover{
+    background-color: #f26798;
+}
+.social-btns .btn:hover .fa{
+    color: #fff;
+}
+.copyright{
+    font-size: 12px;
+    padding: 10px;
+    border-top: 1px solid #fff;
+}
 
 
 @media only screen and (max-width:450px){
@@ -66,3 +129,54 @@
         margin-right: 10px;
     }
 }
+@media only screen and (max-width:575px){
+    .footer-pad h4{
+        font-size: 1.2rem;
+    }
+    .footer-pad p{
+        font-size: 12px;
+    }
+    .footer-pad{
+        text-align: center;
+    }
+    .footer-middle{
+        padding-top: .3em;
+    }
+    .social-btns .btn{
+        width: 30px;
+        height: 30px;
+        line-height: 15px;
+        padding: 5px;
+    }
+    .social-btns{
+        position: absolute;
+        top: 60px;
+        right: 0px;
+    }
+}
+@media only screen and (min-width:576px) and (max-width:768px){
+    .social-btns{
+            position: absolute;
+            top: 20px;
+        }
+    }
+    @media only screen and (min-width:769px) and (max-width:992px){
+        .social-btns{
+            position: absolute;
+            top: 20px;
+            right: 0px;
+        }
+    
+    }
+    @media only screen and (min-width:993px) and (max-width:1200px){
+        .social-btns .btn{
+            width: 30px;
+            height: 30px;
+            line-height: 15px;
+            padding: 5px;
+        }
+        .social-btns{
+            position: absolute;
+            right: 95px;
+        }
+    }
