@@ -32,7 +32,7 @@ a {
     min-height: 100%;
     padding: 20px;
     position: relative;
-    animation: mymove 1s;
+    animation: mymove 2s;
     animation-fill-mode: forwards;
   }
   @keyframes mymove{
@@ -45,36 +45,15 @@ a {
     border-radius: 10px 10px 10px 10px;
     background: #fff;
     padding: 30px;
-    width: 90%;
-    max-width: 450px;
+    width: 100%;
+    max-width: 75%;
     position: relative;
     padding: 0px;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
   }
-  
-  #formFooter {
-    background-color: #f6f6f6;
-    border-top: 1px solid #dce8f1;
-    padding: 25px;
-    text-align: center;
-    -webkit-border-radius: 0 0 10px 10px;
-    border-radius: 0 0 10px 10px;
-  }
-  
-
-.first #icon {
-    width: 100px;
-    padding: 2em 0;
-}
-.first #logo-head{
-    color: black;
-    font-size: 2em;
-    margin-right: 20px;
-    font-family: 'Permanent Marker',cursive;
-}
-#loginTitle{
+  #loginTitle{
     font-size: 2em;
     margin: 10px 0;
 }
@@ -100,24 +79,4 @@ input[type=submit]{
 }
 input[type=submit]:hover{
   background-color: #d42b0e;
-}
-.underlineHover::after{
-  display: block;
-  left: 0px;
-  bottom: -10px;
-  width: 0px;
-  height: 2px;
-  background-color: #f52b07;
-  content: "";
-  transition: width 0.2s;
-}
-.underlineHover:hover::after{
-  width: 100%;
-}
-#login-footer{
-  background-color: #f6f6f6;
-  border-top: 1px solid #dce8f1;
-  padding: 25px;
-  text-align: center;
-  border-radius: 0 0 10px 10px;
 }

@@ -1,0 +1,153 @@
+<link rel="stylesheet" href="/stylesheets/place-order.css">
+
+<section>
+        
+    <div class="wrapper fadeInDown">
+            <div id="formContent">
+            <div class="container p-4">
+                    <h3 id="loginTitle" class="text-muted mb-4 " style="font-size: 20px;">Enter Delivery Details</h3>
+                <div class="row">
+                <div class="col-md-6">
+                <form action="/place-order" method="POST" id="checkout-form" onsubmit="return validation()">
+                    <div class="form-group">
+                        <input type="text" name="del-user-name" class="fadeIn login-input text-center"
+                            placeholder="full name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="del-address" class="fadeIn login-input text-center" id="delAddress"
+                            placeholder="address">
+                        <br><span id="address-msg" class="text-danger"></span><br>
+                    </div>
+                    <div class="form-group">
+                        
+                        <select name="del-city" style="max-width: 95%;" id="delCity" class="fadeIn login-input">
+                            <option hidden>city</option>
+                            <option>Alappuzha</option>
+                            <option>Eranakulam</option>
+                            <option>Idukki</option>
+                            <option>Kannur</option>
+                            <option>Kasaragod</option>
+                            <option>Kollam</option>
+                            <option>Kottayam</option>
+                            <option>Kozhikkode</option>
+                            <option>Malappuram</option>
+                            <option>Palakkad</option>
+                            <option>Pathanamthitta</option>
+                            <option>Thiruvananthapuram</option>
+                            <option>Thrissur</option>
+                            <option>Wayanad</option>
+
+                        </select>
+                        <br><span id="city-msg" class="text-danger"></span><br>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="del-pincode" class="fadeIn login-input text-center" id="delPincode"
+                            placeholder="pincode">
+                        <br><span id="pincode-msg" class="text-danger"></span><br>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="del-landmark" class="fadeIn login-input text-center" id="delLandmark"
+                            placeholder="landmark">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="del-mobile" class="fadeIn login-input text-center" id="delMobile"
+                            placeholder="mobile">
+                        <br><span id="mobile-msg" class="text-danger"></span><br>
+                    </div>
+                    
+                </form>
+            
+            </div>
+            {{!-- section one --}}
+
+
+            <div class="col-md-6">
+                <div class="price-details-box" style="border: 1px solid lightgray;">
+                    <h6 class="text-muted mt-3" style="font-size: 16px;">PRICE DETAILS</h6>
+                    <hr>
+                    <p class="ml-2" style="text-align: left; font-size: 14px;">Price (6 Items) <span class="float-right mr-4">₹ <span class="text-danger">10000</span>/-</span>
+                    </p>
+                    <p class="ml-2" style="text-align: left; font-size: 14px;">Delivery Charges <span class="float-right mr-4 text-success">FREE</span></p>
+                    <hr>
+                    <p class="ml-2" style="text-align: left; font-size: 14px;">Total Payable <span class="float-right mr-4">₹ <span class="text-danger">{{total}}</span>/-</span>
+                    </p>
+                    
+                   
+                </div>
+               <div class="payment-box" style="border: 1px solid lightgray; margin-top: 80px;">
+
+                    <div style="background-color: #f52b07;padding-bottom: 7px;">
+                        <h6 class="text-light pt-3" style="font-size: 16px;">Payment Method</h6>
+                    </div>
+                    <div class="payment-mode ml-2 mt-3 text-muted" style="text-align: left;">
+                        <label><input type="radio" class="mb-3" form="checkout-form" name="payment-method" value="COD"
+                                checked><b>&nbsp;&nbsp;COD</b></label><br>
+                        <label><input type="radio" class="mb-3" form="checkout-form" name="payment-method" value="Razorpay"><b>&nbsp;&nbsp;Razorpay</b></label><br>
+                        <label><input type="radio" class="mb-3" form="checkout-form" name="payment-method" value="Razorpay"><b>&nbsp;&nbsp;Paytm</b></label>
+                    </div>
+                    
+                </div>
+            </div>
+
+         {{!-- row    --}}
+        </div>
+        <input type="submit" class="fadeIn" form="checkout-form" value="Submit">
+        {{!-- container --}}
+        </div>
+        {{!-- form content --}}
+        </div>
+        </div>
+</section>
+
+
+<script>
+    function validation() {
+        var delAdd=document.getElementById("delAddress").value;
+        var delCity=document.getElementById("delCity").value;
+        var delPincode=document.getElementById("delPincode").value;
+        var delMobile=document.getElementById('delMobile').value;
+
+        
+        if (delAdd == "") {
+            document.getElementById("address-msg").innerHTML = "enter address";
+            return false;
+        }
+        if (delCity == 'city') {
+            document.getElementById("city-msg").innerHTML = "choose your city";
+            return false;
+        }
+        if (delPincode.length<1) {
+            document.getElementById("pincode-msg").innerHTML = "enter pincode";
+            return false;
+        }
+        if (delMobile.length<1) {
+            document.getElementById("mobile-msg").innerHTML = "enter mobile number";
+            return false;
+        }
+        
+        if (delMobile.length < 10) {
+            document.getElementById('mobile-msg').innerHTML = "enter valid number";
+            return false;
+        }
+        
+    }
+</script>
+
+<style>
+    .form-group select {
+        text-align: center;
+        width: 100%;
+        text-align-last: center;
+        color: #999;
+    }
+
+    .form-group select option {
+        color: grey !important;
+        font-size: 14px;
+    }
+     input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>

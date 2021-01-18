@@ -1,0 +1,122 @@
+body {
+    background-color: #eee;
+    font-family: 'poppins', sans-serif;
+}
+
+.container {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.item-head {
+    color: grey;
+    font-size: 13px;
+}
+
+button {
+    border: 1px solid #f52b07;
+    width: 40px;
+    border-radius: 15px;
+    font-weight: 500;
+    background-color: unset;
+}
+
+button:focus {
+    outline: none;
+}
+
+.item-details {
+    padding-top: 40px !important;
+}
+
+.cart-table h3 {
+    font-size: 20px;
+}
+
+tbody td img {
+    width: 100px;
+    height: 90px;
+    border-radius: 20px;
+}
+
+.remove-btn {
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: none !important;
+}
+
+.remove-btn:hover {
+    color: rgb(177, 9, 9) !important;
+}
+
+.cart-footer h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cart-footer a {
+    text-decoration: none;
+    width: 160px;
+    margin-left: 15px;
+        border-color: #dc3545;
+        color: #dc3545;
+        border-radius: 10px;
+    }
+
+    .cart-footer a:hover {
+        background-color: #dc3545;
+        color: white;
+}
+.home-btn{
+    margin-top: 45px;
+}
+
+@media only screen and (min-width:320px) and (max-width:992px){
+    .table td, .table th{
+        font-size: 13px;
+    }
+}
+@media only screen and (min-width:576px) and (max-width:767px){
+    .container{
+        max-width: 100%;
+    }
+    .cart-footer a{
+        width: 135px;
+        margin-left: 13px;
+        font-size: 13px;
+    }
+    .cart-footer h3{
+        font-size: 15px;
+    }
+    .home-btn{
+        margin-top: 42px;
+    }
+}
+@media only screen and (max-width:575px){
+    button{
+        width: 30px;
+    }
+    .minuse-btn{
+        margin-right: 2px !important;
+    }
+    .plus-btn{
+        margin-left: 2px !important;
+    }
+    .table td, .table th{
+        font-size: 11px;
+        padding: 0;
+    }
+    .cart-footer a{
+        width: 100px;
+        margin-left: 16px;
+        font-size: 11px;
+    }
+    .cart-footer h3{
+        font-size: 13px;
+    }
+    .home-btn{
+        margin-top: 40px;
+    }
+}

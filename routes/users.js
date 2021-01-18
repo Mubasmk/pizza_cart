@@ -61,7 +61,15 @@ router.get('/logout',(req,res)=>{
 
 router.get('/cart',verifyLogin,async(req,res)=>{
   let products=await userHelper.getCartProducts(req.session.user._id);
-  res.render('users/cart',{products});
+  let totalValue=0;
+  if(products.length>0){
+    totalValue=await userHelper.getTotalAmount(req.session.user._id);
+  }
+  if(products.length<1){
+    res.render('users/empty-cart',{user:req.session.user});
+  }else{
+    res.render('users/cart',{products,user:req.session.user,totalValue});
+  }
 });
 
 router.get('/addCart/:id',(req,res)=>{
@@ -71,10 +79,23 @@ router.get('/addCart/:id',(req,res)=>{
   });
 });
 
-router.post('/change-product-quantity',(req,res,next)=>{
-  userHelper.changeProductQuantity(req.body).then((response)=>{
+router.post('/change-product-quantity',(req,res)=>{
+  userHelper.changeProductQuantity(req.body).then(async(response)=>{
+    response.total=await userHelper.getTotalAmount(req.session.user._id);
     res.json(response);
-  })
-})
+  });
+});
+
+router.get('/place-order',verifyLogin,async(req,res)=>{
+  let products=await userHelper.getCartProducts(req.session.user._id);
+  let total=await userHelper.getTotalAmount(req.session.user._id);
+  res.render('users/place-order',{total,user:req.session.user})
+});
+
+router.post('/remove-cart-item',(req,res)=>{
+  userHelper.deleteCartItem(req.body).then((response)=>{
+    res.json(response)
+  });
+});
 
 module.exports = router;

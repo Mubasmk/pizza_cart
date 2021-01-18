@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="/stylesheets/user-home.css">
+<link rel="stylesheet" href="/stylesheets/user-home.css">   
 
-
+<div class="notify"><span id="notifyType" class=""></span></div>
 <section id="showcase">
     <div class="container">
         <div class="row py-5">
@@ -38,7 +38,8 @@
                     <h4 class="card-title text-center">{{this.Title}} {{this.Item}}</h4>
                     <h5 class="text-center mb-5">({{this.Category}})</h5>
                     <h5 class="ml-2" style="display: inline-block;"><b>₹ {{this.Price}}/-</b></h5>
-                    <button onclick="addToCart('{{this._id}}')" class="btn float-right mr-2" style="display: inline-block;">+
+                    <button onclick="addToCart('{{this._id}}')" class="btn float-right mr-2"
+                        style="display: inline-block;">+
                         Add</button>
                 </div>
             </div>
@@ -153,3 +154,41 @@
         </div>
     </div>
 </footer>
+
+<style>
+    .notify{  
+    position:fixed;
+    z-index: 10000;
+    top:20px;
+    width:350px;
+    right: 10px;
+    height:0;  
+    box-sizing:border-box;
+    color:white;  
+    text-align:center;
+    background:#f86503f3;
+    border-radius: 25px;
+    overflow:hidden;
+    box-sizing:border-box;
+    transition:height .2s;
+  }
+  #notifyType:before{
+    display:block;
+    margin-top:15px; 
+    
+  }
+  
+  .active{  
+    height:50px;
+  }
+  
+  .success:before{
+    Content:"item added to the cart!";
+  }
+  
+  @media only screen and (max-width:576px){
+    .notify{
+        width: 250px;
+    }
+}
+</style>
