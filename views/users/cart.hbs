@@ -31,13 +31,14 @@
                             onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user}}',1)">+</button>
 
                     </td>
-                    
+
                     <td class="item-details">
-                        <a onclick="removeCartItem('{{this._id}}','{{this.product._id}}','{{../user}}')" class="remove-btn text-danger d-none d-sm-block"><span
+                        <a onclick="removeCartItem('{{this._id}}','{{this.product._id}}','{{../user}}')"
+                            class="remove-btn text-danger d-none d-sm-block"><span
                                 class="fa fa-times mr-1"></span><b>Remove</b></a>
-                        <a onclick="removeCartItem('{{this._id}}','{{this.product._id}}','{{../user}}')" class="remove-btn text-danger d-sm-none"><span
-                                class="fa fa-times mr-1"></span></a>
-                        
+                        <a onclick="removeCartItem('{{this._id}}','{{this.product._id}}','{{../user}}')"
+                            class="remove-btn text-danger d-sm-none"><span class="fa fa-times mr-1"></span></a>
+
                     </td>
                 </tr>
                 {{/each}}
@@ -112,39 +113,40 @@
 
 
 <style>
-    .remove{  
-    position:fixed;
-    z-index: 10000;
-    top:20px;
-    width:350px;
-    right: 10px;
-    height:0;  
-    box-sizing:border-box;
-    color:white;  
-    text-align:center;
-    background:#f86503f3;
-    border-radius: 25px;
-    overflow:hidden;
-    box-sizing:border-box;
-    transition:height .2s;
-  }
-  #removeType:before{
-    display:block;
-    margin-top:15px; 
-    
-  }
-  
-  .removeActive{  
-    height:50px;
-  }
-  
-  .removeSuccess:before{
-    Content:"item removed from cart !";
-  }
-  
-  @media only screen and (max-width:576px){
-    .remove{
-        width: 250px;
+    .remove {
+        position: fixed;
+        z-index: 10000;
+        top: 20px;
+        width: 350px;
+        right: 10px;
+        height: 0;
+        box-sizing: border-box;
+        color: white;
+        text-align: center;
+        background: #f86503f3;
+        border-radius: 25px;
+        overflow: hidden;
+        box-sizing: border-box;
+        transition: height .2s;
     }
-}
+
+    #removeType:before {
+        display: block;
+        margin-top: 15px;
+
+    }
+
+    .removeActive {
+        height: 50px;
+    }
+
+    .removeSuccess:before {
+        Content: "item removed from cart !";
+    }
+
+    @media only screen and (max-width:576px) {
+        .remove {
+            width: 250px;
+        }
+    }
 </style>

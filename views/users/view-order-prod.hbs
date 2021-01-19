@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="/stylesheets/view-order-prod.css">
+
+<section>
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <div class="container p-4">
+                <h3 id="loginTitle" class="text-muted mb-4 " style="font-size: 20px;">Order Item</h3>
+                <table class="table">
+                    <thead>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {{#each products}}
+                            <td>
+                                <img src="/images/{{this.product._id}}.jpg" alt="">
+                            </td>
+                            <td class="pt-4">{{this.product.Title}}<br>{{this.product.Item}}</td>
+                            <td class="pt-4">₹ {{this.product.Price}}/-</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                <hr>
+                <a href="/" class="btn btn-home mb-3 mr-5">Continue Shopping</a>
+                <a href="#" class="btn btn-track mb-3 ml-5">Track Order</a>
+
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="mainFooter" role="contentinfo">
+    <div class="footer-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Address</h4>
+                        <p>Pizza Hub</p>
+                        <p>Thazhechovva,kannur</p>
+                        <p>Kerala,pin:670003</p>
+                        <p>pizzahub@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Opening Hours</h4>
+                        <p>Monday-Friday</p>
+                        <p>09.00 am - 10.00 pm</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Book a Table</h4>
+                        <p>Eating Hot and Spicy Pizza is best thing to consider</p>
+                        <p>+91 8848474156</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3 mb-5">
+                    <div class="footer-pad">
+                        <h4>Follow Us</h4>
+                        <div class="social-btns">
+                            <a href="#" class="btn facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="btn linkedin">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="btn instagram">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 copyright">
+                    <p class="text-center">© Copyright 2021 - Pizza Hub. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
