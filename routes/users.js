@@ -118,7 +118,14 @@ router.get('/my-orders', verifyLogin, async(req, res) => {
 
 router.get('/view-order-prod/:id', verifyLogin, async(req, res) => {
     let products = await userHelper.getUserOrderProduct(req.params.id);
-    res.render('users/view-order-prod', { products, user: req.session.user })
+    let order=await userHelper.getUserOrder(req.session.user._id)
+    console.log("order:::",order);
+    res.render('users/view-order-prod', { products,order, user: req.session.user })
+});
+router.get('/order-tracking/:id',verifyLogin,async(req,res)=>{
+    let orders=await userHelper.getUserOrder(req.session.user._id);
+   let products=await userHelper.getUserOrderProduct(req.params.id);
+    res.render('users/order-tracking',{products,user:req.session.user,orders})
 })
 
 module.exports = router;

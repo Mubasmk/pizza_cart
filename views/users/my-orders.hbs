@@ -12,26 +12,36 @@
                         <th scope="col" class="d-none d-md-block">Amount</th>
                         <th scope="col">Date</th>
                         <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each orders}}
                     <tr>
 
-                        <td class="id-td">
+                        <td class="id-td ">
                             <a href="/view-order-prod/{{this._id}}" class="prod-id">{{this._id}}</a>
                         </td>
                         <td class="d-none d-md-block">₹ <span class="text-success">{{this.totalAmount}}</span> /-</td>
                         <td>{{this.date}}</td>
                         <td>
-                            <a href="/view-order-prod/{{this._id}}" class="view-prod d-none d-md-block"><b>View product</b></a>
+                            <a href="/view-order-prod/{{this._id}}" class="item-btn d-none d-md-block"><b>View product</b></a>
                         </td>
                         <td>
-                            <a href="/view-order-prod/{{this._id}}" class="view-prod d-md-none"><b>View</b></a>
+                            <a href="/view-order-prod/{{this._id}}" class="item-btn d-md-none"><b>View</b></a>
                         </td>
-
+                        <td>
+                            <a href="/order-tracking/{{this._id}}" class="item-btn d-none d-md-block"><b>Track order</b></a>
+                        </td>
+                        <td>
+                            <a href="/order-tracking/{{this._id}}" class="item-btn d-md-none"><b>Track</b></a>
+                        </td>
+                    
                     </tr>
                     {{/each}}
+
+                    
                 </tbody>
             </table>
         </div>

@@ -27,12 +27,20 @@ tbody tr td,
     font-weight: 500;
 }
 
-.view-prod {
+.item-btn {
     text-decoration: none !important;
-    color: rgb(241, 32, 32) !important;
+    border: 1px solid #dc3545;
+    padding: 5px;
+    text-align: center;
+    font-size: 13px;
+    color: #dc3545;
+    border-radius: 10px;
+}
+.item-btn:hover{
+    color: white;
+    background: #dc3545;
 }
 
-.view-prod:hover,
 .prod-id:hover {
     color: rgb(182, 19, 19) !important;
 }
@@ -67,6 +75,17 @@ tbody tr td,
 
     tbody tr td,
     .prod-id {
+        font-size: 11px;
+    }
+}
+@media only screen and (max-width:500px){
+    .table td, .table th{
+        padding: 10px 10px 10px 0;
+    }
+    .table th{
+        font-size: 12px !important;
+    }
+    .item-btn{
         font-size: 11px;
     }
 }

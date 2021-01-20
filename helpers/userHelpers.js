@@ -204,8 +204,10 @@ module.exports = {
     placeOrder: (order, products, total) => {
         return new Promise((resolve, reject) => {
             console.log(order, products, total);
-            let status = order['payment-method'] === 'COD' ? 'placed' : 'pending';
+            let status = order['payment-method'] === 'COD' ? 'Order confirmed' : 'pending';
             let d = new Date();
+            var days=1;
+            var deliveryDate=new Date(d.getTime()+(days*24*60*60*1000));
             let orderObj = {
                 deliveryDetails: {
                     Name: order.delName,
@@ -220,7 +222,8 @@ module.exports = {
                 products: products,
                 totalAmount: total,
                 status: status,
-                date: d.toLocaleDateString()
+                date: d.toLocaleDateString(),
+                expectedDel:deliveryDate.toLocaleDateString()
             }
             db.get().collection(collection.ORDER_COLLECTION).insertOne(orderObj).then((response) => {
                 db.get().collection(collection.CART_COLLECTION).removeOne({ user: objectId(order.userId) });

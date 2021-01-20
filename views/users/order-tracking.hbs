@@ -1,0 +1,107 @@
+<link rel="stylesheet" href="/stylesheets/order-tracking.css">
+
+<div class="container">
+    <article class="card">
+        <header class="card-header"> My Orders / Tracking </header>
+        <div class="card-body">
+            {{#each orders}}
+            <h6>Order ID: {{this._id}}</h6>
+            <article class="card">
+                <div class="card-body row">
+                    <div class="col"> <strong>Estimated Delivery time:</strong> <br>{{expectedDel}} </div>
+                    <div class="col"> <strong>Shipping BY:</strong> <br> BLUEDART, | <i class="fa fa-phone"></i>
+                        +1598675986 </div>
+                    <div class="col"> <strong>Status:</strong> <br> {{status}} </div>
+                    <div class="col"> <strong>Tracking #:</strong> <br> BD045903594059 </div>
+                </div>
+            </article>
+            {{/each}}
+            <div class="track">
+                <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span
+                        class="text">Order confirmed</span> </div>
+                <div class="step "> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text">
+                        Picked by courier</span> </div>
+                <div class="step"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text"> On the
+                        way </span> </div>
+                <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">Ready for
+                        pickup</span> </div>
+            </div>
+            <hr>
+            <ul class="row">
+                {{#each products}}
+                <li class="col-md-4">
+                    <figure class="itemside mb-3">
+                        <div class="aside"><img src="/images/{{this.product._id}}.jpg" class="img-sm border"></div>
+                        <figcaption class="info align-self-center">
+                            <p class="title">{{this.product.Title}} {{this.product.Item}}<br><span
+                                    style="text-transform: uppercase;font-size: 15px">{{this.product.Variety}}
+                                    ({{this.product.Category}})</span></p> <span class="text-muted">₹
+                                {{this.product.Price}} /- </span>
+                        </figcaption>
+                    </figure>
+                </li>
+                {{/each}}
+            </ul>
+            <hr>
+            <a href="/my-order" class="btn btn-warning" data-abc="true" style="font-size: 13px; width: 145px"> <i
+                    class="fa fa-chevron-left"></i> Back to orders</a>
+            <a href="/" class="btn btn-warning float-right" data-abc="true" style="font-size: 13px; width: 145px">
+                Continue shopping <i class="fa fa-chevron-right"></i></a>
+        </div>
+    </article>
+</div>
+
+
+<footer class="mainFooter" style="margin-bottom: -50px !important;" role="contentinfo">
+    <div class="footer-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Address</h4>
+                        <p>Pizza Hub</p>
+                        <p>Thazhechovva,kannur</p>
+                        <p>Kerala,pin:670003</p>
+                        <p>pizzahub@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Opening Hours</h4>
+                        <p>Monday-Friday</p>
+                        <p>09.00 am - 10.00 pm</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Book a Table</h4>
+                        <p>Eating Hot and Spicy Pizza is best thing to consider</p>
+                        <p>+91 8848474156</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3 mb-5">
+                    <div class="footer-pad">
+                        <h4>Follow Us</h4>
+                        <div class="social-btns">
+                            <a href="#" class="btn facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="btn linkedin">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="btn instagram">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 copyright">
+                    <p class="text-center">© Copyright 2021 - Pizza Hub. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

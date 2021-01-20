@@ -160,34 +160,35 @@
 
 
 <script>
+    
     function validation() {
         var delAdd = document.getElementById("delAddress").value;
         var delCity = document.getElementById("delCity").value;
         var delPincode = document.getElementById("delPincode").value;
         var delMobile = document.getElementById('delMobile').value;
 
-
+    
         if (delAdd == "") {
             document.getElementById("address-msg").innerHTML = "enter address";
             return false;
         }
-        if (delCity == 'city') {
+        else if (delCity == 'city') {
             document.getElementById("city-msg").innerHTML = "choose your city";
             return false;
         }
-        if (delPincode.length < 1) {
+        else if (delPincode.length < 1) {
             document.getElementById("pincode-msg").innerHTML = "enter pincode";
             return false;
         }
-        if (delMobile.length < 1) {
+        else if (delMobile.length < 1) {
             document.getElementById("mobile-msg").innerHTML = "enter mobile number";
             return false;
         }
 
-        if (delMobile.length < 10) {
+        else if (delMobile.length < 10) {
             document.getElementById('mobile-msg').innerHTML = "enter valid number";
             return false;
-        }
+        }else{
          $.ajax({
             url:'/place-order',
             method:'post',
@@ -198,6 +199,7 @@
                 }
             }
         })
+        }
     }
     
 </script>
