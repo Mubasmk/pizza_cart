@@ -14,6 +14,7 @@ var verifyLogin = (req, res, next) => {
 router.get('/', async function(req, res, next) {
     let user = req.session.user;
     let cartCount = null;
+    
     if (req.session.user) {
         cartCount = await userHelper.getCartCount(req.session.user._id);
     }
@@ -129,8 +130,12 @@ router.get('/order-tracking/:id',verifyLogin,async(req,res)=>{
 });
 
 router.get('/product-details/:id',async(req,res)=>{
+    let cartCount = null;
+    if (req.session.user) {
+        cartCount = await userHelper.getCartCount(req.session.user._id);
+    }
     let products=await productHelper.getProductDetails(req.params.id);
-        res.render('users/product-details',{products,user:req.session.user})
+        res.render('users/product-details',{products,user:req.session.user,cartCount})
 })
 
 module.exports = router;

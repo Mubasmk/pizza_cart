@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/stylesheets/order-tracking.css">
 
+<div class="notify"><span id="notifyType" class=""></span></div>
 <div class="container">
     <article class="card">
         
@@ -16,7 +17,7 @@
                     <h4><b>{{products.Title}} {{products.Item}}</b></h4>
                 <h6>{{products.Variety}} <span class="text-muted" style="text-transform: lowercase;">({{products.Category}})</span></h6>
                 <h5 class="item-price"><b>₹ {{products.Price}} /-</b></h5>
-                <button onclick="addToCart('{{this._id}}')" class="btn mr-2"
+                <button onclick="addToCart('{{products._id}}')" class="btn mr-2"
                         style="display: inline-block;">+
                         Add</button>
                 </div>
@@ -125,6 +126,41 @@
 @keyframes mymove{
     from{top: -140px;}
     to{top: 20px;}
+}
+   .notify{  
+    position:fixed;
+    z-index: 10000;
+    top:20px;
+    width:350px;
+    right: 10px;
+    height:0;  
+    box-sizing:border-box;
+    color:white;  
+    text-align:center;
+    background:#f86503f3;
+    border-radius: 25px;
+    overflow:hidden;
+    box-sizing:border-box;
+    transition:height .2s;
+  }
+  #notifyType:before{
+    display:block;
+    margin-top:15px; 
+    
+  }
+  
+  .active{  
+    height:50px;
+  }
+  
+  .success:before{
+    Content:"item added to the cart!";
+  }
+  
+  @media only screen and (max-width:576px){
+    .notify{
+        width: 250px;
+    }
 }
 
 @media only screen and (min-width:768px){
