@@ -33,7 +33,7 @@
         {{#each products}}
         <div class="col-lg-4 col-sm-6 col-12">
             <div class="card item-card" style="width: 22rem;">
-                <img class="card-img-top mb-3" src="/images/{{this._id}}.jpg" alt="Card image cap">
+                <a href="/product-details/{{this._id}}"><img class="card-img-top mb-3" src="/images/{{this._id}}.jpg" alt="Card image cap"></a>
                 <div class="card-body">
                     <h4 class="card-title text-center">{{this.Title}} {{this.Item}}</h4>
                     <h5 class="text-center mb-5">({{this.Category}})</h5>

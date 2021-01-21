@@ -126,6 +126,11 @@ router.get('/order-tracking/:id',verifyLogin,async(req,res)=>{
     let orders=await userHelper.getUserOrder(req.session.user._id);
    let products=await userHelper.getUserOrderProduct(req.params.id);
     res.render('users/order-tracking',{products,user:req.session.user,orders})
+});
+
+router.get('/product-details/:id',async(req,res)=>{
+    let products=await productHelper.getProductDetails(req.params.id);
+        res.render('users/product-details',{products,user:req.session.user})
 })
 
 module.exports = router;

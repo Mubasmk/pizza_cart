@@ -1,0 +1,143 @@
+<link rel="stylesheet" href="/stylesheets/order-tracking.css">
+
+<div class="container">
+    <article class="card">
+        
+        <div class="row">
+            <div class="col-md-6">
+            <div class="mt-4 item-img">
+                <img src="/images/{{products._id}}.jpg" style="width: 100%; border-radius: 15px;" alt="">
+        
+            </div>
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="mt-4 item-details">
+                <div>
+                    <h4><b>{{products.Title}} {{products.Item}}</b></h4>
+                <h6>{{products.Variety}} <span class="text-muted" style="text-transform: lowercase;">({{products.Category}})</span></h6>
+                <h5 class="item-price"><b>₹ {{products.Price}} /-</b></h5>
+                <button onclick="addToCart('{{this._id}}')" class="btn mr-2"
+                        style="display: inline-block;">+
+                        Add</button>
+                </div>
+                <div>
+                    <h6 class="item-desc-head">details about this meal</h6>
+                <p>{{products.Description}}</p>
+                </div>
+               <div>
+                    <h6 class="item-desc-head">Ingredients</h6>
+                <p>{{products.Ingredients}}</p>
+               </div>
+            </div>
+        </div>
+        </div>
+    </article>
+</div>
+
+
+<footer class="mainFooter" style="margin-bottom: -50px !important;" role="contentinfo">
+    <div class="footer-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Address</h4>
+                        <p>Pizza Hub</p>
+                        <p>Thazhechovva,kannur</p>
+                        <p>Kerala,pin:670003</p>
+                        <p>pizzahub@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Opening Hours</h4>
+                        <p>Monday-Friday</p>
+                        <p>09.00 am - 10.00 pm</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Book a Table</h4>
+                        <p>Eating Hot and Spicy Pizza is best thing to consider</p>
+                        <p>+91 8848474156</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3 mb-5">
+                    <div class="footer-pad">
+                        <h4>Follow Us</h4>
+                        <div class="social-btns">
+                            <a href="#" class="btn facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="btn linkedin">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="btn instagram">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 copyright">
+                    <p class="text-center">© Copyright 2021 - Pizza Hub. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<style>
+    .item-details button{
+    background-color: unset;
+    border-color: #dc3545;
+    color: #dc3545;
+    border-radius: 10px;
+    width: 235px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+.item-details button:focus{
+    box-shadow: none;
+}
+.item-details button:hover{
+    background-color: #dc3545;
+    color: white;
+}
+.item-details .item-desc-head{
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.item-details p{
+    font-size: 14px;
+}
+.item-price{
+    margin-top: 15px;
+}
+.card{
+    animation: mymove 3s;
+    animation-fill-mode: forwards;
+    position: relative;
+}
+@keyframes mymove{
+    from{top: -140px;}
+    to{top: 20px;}
+}
+
+@media only screen and (min-width:768px){
+.item-img{
+    margin-left: 5px;
+}
+}
+@media only screen and (max-width:767px){
+    .item-img{
+        margin-top: 0px !important;
+    }
+    .card{
+        border-radius: 15px;
+    }
+}
+</style>
