@@ -8,7 +8,7 @@
                 <h3 id="loginTitle" class="text-muted mb-4 " style="font-size: 20px;">Enter Delivery Details</h3>
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="/place-order" method="POST" id="checkout-form" onsubmit="return validation()">
+                        <form action="/place-order" method="POST" id="checkout-form" onsubmit="return validation()" >
                             <div class="form-group">
                                 <input type="text" name="delName" class="fadeIn login-input text-center"
                                     placeholder="full name">
@@ -50,7 +50,7 @@
                                     id="delLandmark" placeholder="landmark">
                             </div>
                             <div class="form-group">
-                                <input type="number" name="delMobile"  class="fadeIn login-input text-center"
+                                <input type="number" name="delMobile" class="fadeIn login-input text-center"
                                     id="delMobile" placeholder="mobile">
                                 <br><span id="mobile-msg" class="text-danger"></span><br>
                             </div>
@@ -89,7 +89,7 @@
                                 <label><input type="radio" class="mb-3" form="checkout-form" name="payment-method"
                                         value="Razorpay"><b>&nbsp;&nbsp;Razorpay</b></label><br>
                                 <label><input type="radio" class="mb-3" form="checkout-form" name="payment-method"
-                                        value="Razorpay"><b>&nbsp;&nbsp;Paytm</b></label>
+                                        value="Paytm"><b>&nbsp;&nbsp;Paytm</b></label>
                             </div>
 
                         </div>
@@ -160,14 +160,14 @@
 
 
 <script>
-    
+
     function validation() {
         var delAdd = document.getElementById("delAddress").value;
         var delCity = document.getElementById("delCity").value;
         var delPincode = document.getElementById("delPincode").value;
         var delMobile = document.getElementById('delMobile').value;
 
-    
+
         if (delAdd == "") {
             document.getElementById("address-msg").innerHTML = "enter address";
             return false;
@@ -188,18 +188,83 @@
         else if (delMobile.length < 10) {
             document.getElementById('mobile-msg').innerHTML = "enter valid number";
             return false;
-        }else{
-         $.ajax({
-            url:'/place-order',
-            method:'post',
-            data:$('#checkout-form').serialize(),
-            success:(response)=>{
-                if(response.status){
-                    location.href='/order-success'
+        } else {
+            $.ajax({
+                url: '/place-order',
+                method: 'post',
+                data: $('#checkout-form').serialize(),
+                success: (response) => {
+                    if (response.codStatus) {
+                        location.href = '/order-success'
+                    } else {
+                        razorpayPayment(response);
+                    }
                 }
-            }
-        })
+            })
         }
     }
+    {{!-- $('#checkout-form').submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+                url: '/place-order',
+                method: 'post',
+                data: $('#checkout-form').serialize(),
+                success: (response) => {
+                    if (response.codStatus) {
+                        location.href = '/order-success'
+                    } else {
+                        razorpayPayment(response);
+                    }
+                }
+            })
+    }) --}}
     
+    function razorpayPayment(order) {
+        var options = {
+            "key": "rzp_test_xaxHRF6TFiQXJN", // Enter the Key ID generated from the Dashboard
+            "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "Pizza Hub",
+            "description": "Test Transaction",
+            "image": "/images/payment-logo.png",
+            "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response) {
+               verifyPayment(response,order);
+            },
+            "prefill": {
+                "name": "Gaurav Kumar",
+                "email": "gaurav.kumar@example.com",
+                "contact": "9999999999"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+         rzp1.open();
+        function verifyPayment(payment,order){
+                    
+                        console.log("resssssss:",payment,order)
+            $.ajax({
+                url:'/verify-payment',
+                data:{
+                    payment,
+                    order
+                },
+                method:'post',
+                success:(response)=>{
+                    
+                    if(response.status){
+                        location.href="/order-success"
+                    }else{
+                        alert('payment failed');
+                    }
+                }
+            })
+        }
+    }
+
 </script>

@@ -1,0 +1,95 @@
+body {
+    background-color: #eee;
+    font-family: 'poppins', sans-serif;
+    height: 100vh;
+}
+
+.map-card {
+    border: 5px solid rgb(230, 229, 229);
+}
+
+.map-container-5 {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.map-container-5 iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.card h5 {
+    font-size: 25px;
+}
+
+.card .icon {
+    font-size: 30px;
+    color: #dc3545;
+}
+
+.card {
+    background-color: rgb(250, 248, 248);
+    border: none;
+    border-radius: 10px;
+    height: 250px;
+}
+
+form input:focus,
+form textarea:focus {
+    border: 1px solid rgb(209, 7, 7) !important;
+    box-shadow: none !important;
+
+}
+
+form button {
+    background-color: #f52b07;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 7px;
+    width: 200px;
+    padding-top: 10px !important;
+}
+
+form button:hover {
+    background-color: #d42b0e;
+}
+
+@media only screen and (max-width:1200px) {
+    .card {
+        width: 18rem !important;
+
+    }
+}
+
+@media only screen and (max-width:991px) {
+    .card {
+        width: 15rem !important;
+        margin: auto;
+
+    }
+
+    .contact-card .container {
+        max-width: 100%;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .card {
+        width: auto !important;
+        margin: auto;
+        margin-bottom: 15px;
+
+    }
+
+    form {
+        margin-bottom: 25px;
+    }
+}

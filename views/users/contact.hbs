@@ -1,0 +1,161 @@
+{{!-- <link rel="stylesheet" href="/stylesheets/contact.css">
+
+<section class="contact-card">
+    <div class="container">
+        <h3 class="text-center mt-5"><b>Get in Touch with us</b></h3>
+        <div class="row mt-5 text-center">
+            <div class="col-md-4">
+                <div class="card" style="width: 20rem;">
+                    <div class="card-body">
+                        <h5 class="card-title icon"><i class="fa fa-map-marker" aria-hidden="true"></i></h5>
+                        <h5 class="card-title">Get Direction</h5>
+                        <h6 class="card-subtitle mt-2">Pizza Hub</h6>
+                        <p class="card-text mb-0">Thazhechovva,Kannur</p>
+                        <p class="card-text">Kerala,Pin:670003</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 20rem;">
+                    <div class="card-body">
+                        <h5 class="card-title icon"><i class="fa fa-phone" aria-hidden="true"></i></h5>
+                        <h5 class="card-title">Contact Us</h5>
+
+                        <p class="card-text mb-0">+91 8848474156</p>
+                        <p class="card-text">pizzahub@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 20rem;">
+                    <div class="card-body">
+                        <h5 class="card-title icon"><i class="fa fa-clock-o" aria-hidden="true"></i></h5>
+                        <h5 class="card-title">Opening Hours</h5>
+
+                        <p class="card-text mb-0">Monday - Friday</p>
+                        <p class="card-text">09.00 am to 10.00 pm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h3 class="text-center"><b>Send your regards !!</b></h3>
+                <form id="submit-form"
+                    action="">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1"><b>Name</b></label>
+                        <input type="text" class="form-control" name="name" id="exampleFormControlInput1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1"><b>Email</b></label>
+                        <input type="email" class="form-control" name="email" id="exampleFormControlInput1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1"><b>Message</b></label>
+                        <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="4"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <!--Grid row-->
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+                <div class="map-card">
+                    <!--Google map-->
+                    <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 400px">
+                        <iframe src="https://maps.google.com/maps?q=thazhechovva&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+                    </div>
+
+                    <!--/.Card content-->
+
+                </div>
+                <!--/.Card-->
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+    </div>
+</section>
+<footer class="mainFooter" role="contentinfo">
+    <div class="footer-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Address</h4>
+                        <p>Pizza Hub</p>
+                        <p>Thazhechovva,kannur</p>
+                        <p>Kerala,pin:670003</p>
+                        <p>pizzahub@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Opening Hours</h4>
+                        <p>Monday-Friday</p>
+                        <p>09.00 am - 10.00 pm</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <div class="footer-pad">
+                        <h4>Book a Table</h4>
+                        <p>Eating Hot and Spicy Pizza is best thing to consider</p>
+                        <p>+91 8848474156</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3 mb-5">
+                    <div class="footer-pad">
+                        <h4>Follow Us</h4>
+                        <div class="social-btns">
+                            <a href="#" class="btn facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="btn linkedin">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="btn instagram">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 copyright">
+                    <p class="text-center">© Copyright 2021 - Pizza Hub. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbzS96qImlkvV3tz8y-c1_cnOvLpr31iQ2xXKFDsUw/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script> --}}

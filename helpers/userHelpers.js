@@ -4,6 +4,12 @@ const { resolve, reject } = require('promise');
 var bcrypt = require('bcrypt');
 const { response } = require('express');
 var objectId = require('mongodb').ObjectID;
+const Razorpay=require('razorpay');
+const { promises } = require('fs');
+var instance = new Razorpay({
+    key_id: 'rzp_test_xaxHRF6TFiQXJN',
+    key_secret: 'lOVtp1v3K35gsFPOvJFpO8JF'
+  });
 
 module.exports = {
     doSignup: (userData) => {
@@ -227,13 +233,20 @@ module.exports = {
             }
             db.get().collection(collection.ORDER_COLLECTION).insertOne(orderObj).then((response) => {
                 db.get().collection(collection.CART_COLLECTION).removeOne({ user: objectId(order.userId) });
-                resolve();
+                resolve(response.ops[0]._id);
             });
         });
     },
     getUserOrder: (userId) => {
         return new Promise(async(resolve, reject) => {
             let orders = await db.get().collection(collection.ORDER_COLLECTION).find({ userId: objectId(userId) }).toArray();
+            resolve(orders);
+        });
+
+    },
+    getUserOrder1: (orderId) => {
+        return new Promise(async(resolve, reject) => {
+            let orders = await db.get().collection(collection.ORDER_COLLECTION).find({ _id: objectId(orderId) }).toArray();
             resolve(orders);
         });
 
@@ -269,6 +282,48 @@ module.exports = {
                 }
             ]).toArray()
             resolve(products)
+        });
+    },
+    generateRazorpay:(orderId,total)=>{
+        return new Promise((resolve,reject)=>{
+            var options = {
+                amount: total*100,  // amount in the smallest currency unit
+                currency: "INR",
+                receipt: ""+orderId
+              };
+              instance.orders.create(options, function(err, order) {
+                if(err){
+                    console.log(err);
+                }else{
+                    console.log("new Order",order);
+                    resolve(order);
+                }
+              });
+        });
+    },
+    verifyPayment:(details)=>{
+        return new Promise((resolve,reject)=>{
+            const crypto=require('crypto');
+            let hmac=crypto.createHmac('sha256','lOVtp1v3K35gsFPOvJFpO8JF');
+            hmac.update(details['payment[razorpay_order_id']+'|'+details['payment[razorpay_payment_id']);
+            hmac=hmac.digest('hex');
+
+            if(hmac==details['payment[razorpay_signature]']){
+                resolve()
+            }else{
+                reject()
+            }
+        });
+    },
+    changePaymentStatus:(orderId)=>{
+        console.log("orderId::",orderId);
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.ORDER_COLLECTION).updateOne({_id:objectId(orderId)},
+            {
+                $set:{status:'Order confirmed'}
+            }).then(()=>{
+                resolve();
+            })
         })
     }
 }

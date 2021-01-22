@@ -14,7 +14,7 @@ var verifyLogin = (req, res, next) => {
 router.get('/', async function(req, res, next) {
     let user = req.session.user;
     let cartCount = null;
-    
+
     if (req.session.user) {
         cartCount = await userHelper.getCartCount(req.session.user._id);
     }
@@ -102,10 +102,18 @@ router.post('/place-order', async(req, res) => {
     req.body.userId = req.session.user._id;
     let products = await userHelper.getCartProductList(req.body.userId);
     let totalPrice = await userHelper.getTotalAmount(req.body.userId);
-    userHelper.placeOrder(req.body, products, totalPrice).then((response) => {
-        res.json({ status: true });
+    userHelper.placeOrder(req.body, products, totalPrice).then((orderId) => {
+        if (req.body['payment-method']==='COD'){
+            res.json({ codStatus: true });
+        }else{
+            userHelper.generateRazorpay(orderId,totalPrice).then((response)=>{
+                res.json(response);
+            })
+        }
     });
 });
+
+
 
 router.get('/order-success', (req, res) => {
     let email = req.session.user.Email;
@@ -124,7 +132,7 @@ router.get('/view-order-prod/:id', verifyLogin, async(req, res) => {
     res.render('users/view-order-prod', { products,order, user: req.session.user })
 });
 router.get('/order-tracking/:id',verifyLogin,async(req,res)=>{
-    let orders=await userHelper.getUserOrder(req.session.user._id);
+    let orders=await userHelper.getUserOrder1(req.params.id);
    let products=await userHelper.getUserOrderProduct(req.params.id);
     res.render('users/order-tracking',{products,user:req.session.user,orders})
 });
@@ -136,6 +144,22 @@ router.get('/product-details/:id',async(req,res)=>{
     }
     let products=await productHelper.getProductDetails(req.params.id);
         res.render('users/product-details',{products,user:req.session.user,cartCount})
-})
+});
 
+router.post('/verify-payment',(req,res)=>{
+    console.log(req.body);
+    userHelper.verifyPayment(req.body).then(()=>{
+        userHelper.changePaymentStatus(req.body['order[receipt]']).then(()=>{
+            console.log("payment success");
+            res.json({status:true});
+        });
+    }).catch((err)=>{
+        console.log(err);
+        res.json({status:false,errMsg:""})
+    });
+});
+
+router.get('/contact',(req,res)=>{
+    res.render('users/contact')
+})
 module.exports = router;
