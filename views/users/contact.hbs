@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/stylesheets/contact.css">
 
+<div class="notify"><span id="notifyType" class=""></span></div>
 <section class="contact-card">
     <div class="container">
         <h3 class="text-center mt-5"><b>Get in Touch with us</b></h3>
@@ -148,9 +149,19 @@
                 data:$("#submit-form").serialize(),
                 method:"post",
                 success:function (response){
-                    alert("Form submitted successfully")
-                    window.location.reload()
+                    {{!-- alert("Form submitted successfully")
+                    window.location.reload() --}}
                     //window.location.href="https://google.com"
+                $(".notify").toggleClass("active");
+                $("#notifyType").toggleClass("success");
+
+                setTimeout(function () {
+                    $(".notify").removeClass("active");
+                    $("#notifyType").removeClass("success");
+                }, 2000);
+                setTimeout(()=>{
+                    location.reload()
+                },2100);
                 },
                 error:function (err){
                     alert("Something Error")
