@@ -1,6 +1,9 @@
+{{!-- users header navbar --}}
 <nav class="navbar navbar-expand-lg navbar-light bg-light pb-0">
   <a class="navbar-brand nav-title p-0 " href="/" id="nav-title">
+      {{!-- brand logo --}}
       <img src="/images/pizza_hut_logo-removebg.png" style="width: 80px; height: 80px" alt="">Pizza Hub</a>
+      {{!-- brand logo --}}
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -26,9 +29,11 @@
       {{/if}}
     </ul>
   </div>
+  {{!-- cart icon --}}
   <div id="cart-icon">
       <a href="/cart" class="nav-link"><span id="cart-count" class="cartCounter">{{cartCount}}</span>
       <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
   </div>
+  {{!-- cart icon --}}
 </nav>
-
+{{!-- users header navbar --}}

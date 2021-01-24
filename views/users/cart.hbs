@@ -1,8 +1,14 @@
+{{!-- external stylesheet for cart --}}
 <link rel="stylesheet" href="/stylesheets/cart.css">
+{{!-- external stylesheet for cart --}}
 
+{{!-- alert message --}}
 <div class="remove"><span id="removeType" class=""></span></div>
+{{!-- alert message --}}
+
 <section class="cart-table mb-2">
     <div class="container cont mt-5">
+        {{!-- cart table --}}
         <table class="table">
             <h3 class="text-center text-muted mt-3 mb-3">My Cart</h3>
             <thead>
@@ -15,6 +21,7 @@
                 </tr>
             </thead>
             <tbody>
+                {{!-- looping products --}}
                 {{#each products}}
                 <tr>
                     <td>
@@ -42,10 +49,17 @@
                     </td>
                 </tr>
                 {{/each}}
+                {{!-- looping products --}}
             </tbody>
         </table>
+        {{!-- cart table --}}
     </div>
+    {{!-- .container --}}
 </section>
+{{!-- cart table section --}}
+
+
+{{!-- cart footer section --}}
 <section class="cart-footer">
     <div class="container cont">
         <div class="float-right mt-3 mb-3 mr-5">
@@ -54,8 +68,11 @@
         </div>
         <a href="/" class="btn home-btn">Add more pizza</a>
     </div>
+    {{!-- container --}}
 </section>
+{{!-- cart footer section --}}
 
+{{!-- footer --}}
 <footer class="mainFooter" role="contentinfo">
     <div class="footer-middle">
         <div class="container">
@@ -106,13 +123,17 @@
                     <p class="text-center">© Copyright 2021 - Pizza Hub. All rights reserved.</p>
                 </div>
             </div>
+            {{!-- row --}}
         </div>
+        {{!-- container --}}
     </div>
+    {{!-- footer-middle --}}
 </footer>
-
+{{!-- footer --}}
 
 
 <style>
+    {{!-- alert message style --}}
     .remove {
         position: fixed;
         z-index: 10000;
@@ -149,4 +170,5 @@
             width: 250px;
         }
     }
+    {{!-- alert message style --}}
 </style>

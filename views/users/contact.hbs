@@ -1,6 +1,12 @@
+ {{!-- stylesheet for contact --}}
 <link rel="stylesheet" href="/stylesheets/contact.css">
+{{!-- stylesheet for contact --}}
 
+{{!-- alert message --}}
 <div class="notify"><span id="notifyType" class=""></span></div>
+{{!-- alert message --}}
+
+{{!-- contact section --}}
 <section class="contact-card">
     <div class="container">
         <h3 class="text-center mt-5"><b>Get in Touch with us</b></h3>
@@ -15,8 +21,12 @@
                         <p class="card-text">Kerala,Pin:670003</p>
 
                     </div>
+                    {{!-- card-body --}}
                 </div>
+                {{!-- card --}}
             </div>
+            {{!-- column --}}
+
             <div class="col-md-4">
                 <div class="card" style="width: 20rem;">
                     <div class="card-body">
@@ -26,8 +36,12 @@
                         <p class="card-text mb-0">+91 8848474156</p>
                         <p class="card-text">pizzahub@gmail.com</p>
                     </div>
+                    {{!-- card-body --}}
                 </div>
+                {{!-- card --}}
             </div>
+            {{!-- coloumn --}}
+
             <div class="col-md-4">
                 <div class="card" style="width: 20rem;">
                     <div class="card-body">
@@ -37,11 +51,16 @@
                         <p class="card-text mb-0">Monday - Friday</p>
                         <p class="card-text">09.00 am to 10.00 pm</p>
                     </div>
+                    {{!-- card-body --}}
                 </div>
+                {{!-- card --}}
             </div>
+            {{!-- coloumn --}}
         </div>
-
+        {{!-- row --}}
+        
         <div class="row mt-5">
+            {{!-- grid column --}}
             <div class="col-md-6">
                 <h3 class="text-center"><b>Send your regards !!</b></h3>
                 <form id="submit-form"
@@ -62,8 +81,9 @@
                         <button class="btn" type="submit">Submit</button>
                     </div>
                 </form>
+                {{!-- form --}}
             </div>
-            <!--Grid row-->
+            {{!-- grid column --}}
 
             <!--Grid column-->
             <div class="col-md-6 mb-4">
@@ -72,21 +92,20 @@
                     <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 400px">
                         <iframe src="https://maps.google.com/maps?q=thazhechovva&t=&z=13&ie=UTF8&iwloc=&output=embed"
                             frameborder="0" style="border:0" allowfullscreen></iframe>
-
-
                     </div>
-
                     <!--/.Card content-->
-
                 </div>
                 <!--/.Card-->
-
             </div>
             <!--Grid column-->
-
         </div>
+        {{!-- grid row --}}
     </div>
+    {{!-- container --}}
 </section>
+{{!-- contact section --}}
+
+{{!-- footer --}}
 <footer class="mainFooter" role="contentinfo">
     <div class="footer-middle">
         <div class="container">
@@ -100,6 +119,7 @@
                         <p>pizzahub@gmail.com</p>
                     </div>
                 </div>
+                {{!-- grid column --}}
                 <div class="col-md-3 col-sm-6 my-3">
                     <div class="footer-pad">
                         <h4>Opening Hours</h4>
@@ -107,6 +127,7 @@
                         <p>09.00 am - 10.00 pm</p>
                     </div>
                 </div>
+                {{!-- grid column --}}
                 <div class="col-md-3 col-sm-6 my-3">
                     <div class="footer-pad">
                         <h4>Book a Table</h4>
@@ -114,6 +135,7 @@
                         <p>+91 8848474156</p>
                     </div>
                 </div>
+                {{!-- grid column --}}
                 <div class="col-md-3 col-sm-6 my-3 mb-5">
                     <div class="footer-pad">
                         <h4>Follow Us</h4>
@@ -130,17 +152,25 @@
                         </div>
                     </div>
                 </div>
+                {{!-- grid column --}}
             </div>
+            {{!-- row --}}
 
             <div class="row">
                 <div class="col-md-12 copyright">
                     <p class="text-center">© Copyright 2021 - Pizza Hub. All rights reserved.</p>
                 </div>
+                {{!-- grid column --}}
             </div>
+            {{!-- grid row --}}
         </div>
+        {{!-- container --}}
     </div>
+    {{!-- footer-middle --}}
 </footer>
+{{!-- footer --}}
 
+{{!-- contact form alert ajax function --}}
 <script>
         $("#submit-form").submit((e)=>{
             e.preventDefault()
@@ -169,4 +199,5 @@
                 }
             })
         })
-    </script>
+</script>
+{{!-- contact form alert ajax function --}}
