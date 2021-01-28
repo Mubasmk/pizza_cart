@@ -6,25 +6,32 @@ const { response } = require('express');
 var objectId = require('mongodb').ObjectID;
 const Razorpay=require('razorpay');
 const { promises } = require('fs');
+//import razorpay instance
 var instance = new Razorpay({
     key_id: 'rzp_test_xaxHRF6TFiQXJN',
     key_secret: 'lOVtp1v3K35gsFPOvJFpO8JF'
-  });
+});
 
 module.exports = {
+    //signup function
     doSignup: (userData) => {
         return new Promise(async(resolve, reject) => {
+            //user password encrypted
             userData.Password = await bcrypt.hash(userData.Password, 10);
+            //inserting user input to db 
             db.get().collection(collection.USER_COLLECTION).insertOne(userData).then((data) => {
                 resolve(data.ops[0]);
             });
         });
     },
+
+    //login function
     doLogin: (userData) => {
         return new Promise(async(resolve, reject) => {
             let response = {};
+            //find user in db using entered email 
             let user = await db.get().collection(collection.USER_COLLECTION).findOne({ Email: userData.Email });
-            console.log("user", user);
+            console.log(user);
             if (user) {
                 bcrypt.compare(userData.Password, user.Password).then((status) => {
                     if (status) {
@@ -43,14 +50,18 @@ module.exports = {
             }
         });
     },
+
+    //product adding to cart collection in db
     addToCart: (proId, userId) => {
         let proObj = {
             item: objectId(proId),
             quantity: 1
         }
         return new Promise(async(resolve, reject) => {
+            //check user has existed cart collection
             let userCart = await db.get().collection(collection.CART_COLLECTION).findOne({ user: objectId(userId) });
             if (userCart) {
+                //updating user cart 
                 let proExist = userCart.products.findIndex(product => product.item == proId);
                 if (proExist != -1) {
                     db.get().collection(collection.CART_COLLECTION).updateOne({ user: objectId(userId), 'products.item': objectId(proId) }, {
@@ -71,12 +82,15 @@ module.exports = {
                     user: objectId(userId),
                     products: [proObj]
                 }
+                //if user doesn't has exist cart,creating cart
                 db.get().collection(collection.CART_COLLECTION).insertOne(cartObj).then((response) => {
                     resolve();
                 });
             };
         });
     },
+    
+    //get cart items from db
     getCartProducts: (userId) => {
         return new Promise(async(resolve, reject) => {
             let cartItems = await db.get().collection(collection.CART_COLLECTION).aggregate([{
@@ -110,6 +124,8 @@ module.exports = {
             resolve(cartItems)
         });
     },
+
+    //get cart item count
     getCartCount: (userId) => {
         return new Promise(async(resolve, reject) => {
             let count = 0;
@@ -120,6 +136,8 @@ module.exports = {
             resolve(count);
         });
     },
+
+    //change cart item quantity in cart
     changeProductQuantity: (details) => {
         details.count = parseInt(details.count);
         details.quantity = parseInt(details.quantity);
@@ -145,6 +163,8 @@ module.exports = {
             };
         });
     },
+
+    //calculate total amount of cart items
     getTotalAmount: (userId) => {
         return new Promise(async(resolve, reject) => {
             let total = await db.get().collection(collection.CART_COLLECTION).aggregate([{
@@ -188,6 +208,8 @@ module.exports = {
             resolve(total[0].total)
         })
     },
+
+    //delete cart items
     deleteCartItem: (details) => {
         return new Promise((resolve, reject) => {
             db.get().collection(collection.CART_COLLECTION).updateOne({ _id: objectId(details.cart) }, {
@@ -201,12 +223,16 @@ module.exports = {
             });
         });
     },
+
+    //get cart product list
     getCartProductList: (userId) => {
         return new Promise(async(resolve, reject) => {
             let cart = await db.get().collection(collection.CART_COLLECTION).findOne({ user: objectId(userId) });
             resolve(cart.products);
         });
     },
+
+    //function for order placing
     placeOrder: (order, products, total) => {
         return new Promise((resolve, reject) => {
             console.log(order, products, total);
@@ -237,6 +263,8 @@ module.exports = {
             });
         });
     },
+
+    //get user total orders
     getUserOrder: (userId) => {
         return new Promise(async(resolve, reject) => {
             let orders = await db.get().collection(collection.ORDER_COLLECTION).find({ userId: objectId(userId) }).toArray();
@@ -244,6 +272,8 @@ module.exports = {
         });
 
     },
+
+    //get user each order
     getUserOrder1: (orderId) => {
         return new Promise(async(resolve, reject) => {
             let orders = await db.get().collection(collection.ORDER_COLLECTION).find({ _id: objectId(orderId) }).toArray();
@@ -251,6 +281,8 @@ module.exports = {
         });
 
     },
+
+    //get user order product details
     getUserOrderProduct: (orderId) => {
         return new Promise(async(resolve, reject) => {
             let products = await db.get().collection(collection.ORDER_COLLECTION).aggregate([{
@@ -284,6 +316,8 @@ module.exports = {
             resolve(products)
         });
     },
+
+    //generate razorpay payment
     generateRazorpay:(orderId,total)=>{
         return new Promise((resolve,reject)=>{
             var options = {
@@ -301,6 +335,8 @@ module.exports = {
               });
         });
     },
+
+    //verify razorpay payment
     verifyPayment:(details)=>{
         return new Promise((resolve,reject)=>{
             const crypto=require('crypto');
@@ -315,6 +351,8 @@ module.exports = {
             }
         });
     },
+
+    //change payment status after razorpay payment
     changePaymentStatus:(orderId)=>{
         console.log("orderId::",orderId);
         return new Promise((resolve,reject)=>{
@@ -323,7 +361,7 @@ module.exports = {
                 $set:{status:'Order confirmed'}
             }).then(()=>{
                 resolve();
-            })
-        })
+            });
+        });
     }
-}
+};

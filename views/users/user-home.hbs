@@ -1,22 +1,31 @@
+{{!-- user home stylesheet --}}
 <link rel="stylesheet" href="/stylesheets/user-home.css">   
+{{!-- user home stylesheet --}}
 
+{{!-- alert message --}}
 <div class="notify"><span id="notifyType" class=""></span></div>
+{{!-- alert message --}}
+
 <section id="showcase">
     <div class="container">
         <div class="row py-5">
             <div class="col-12 col-md-6 ">
                 <img src="/images/pizza_slide2.png" alt="" class="img-fluid">
             </div>
+            {{!-- grid-column --}}
+
             <div class="col-12 col-md-6 mx-auto my-5 text-center" id="showcase_text">
                 <h5>Having a bad day ?</h5>
                 <h1>Have a pizza</h1>
                 <a href="#item-card">
                     <h6>Order Now</h6>
                 </a>
-
             </div>
+            {{!-- grid-column --}}
         </div>
+        {{!-- grid-row --}}
     </div>
+    {{!-- container --}}
 </section>
 
 <section class="bg-light">
@@ -25,11 +34,14 @@
             <h6 id="item-card" class="sub-title mt-4">special combo</h6>
             <h3 class="big-title">Our Delicious Pizza</h3>
         </div>
+        {{!-- title-content --}}
     </div>
+    {{!-- container --}}
 </section>
 
 <div class="container">
     <div class="row">
+        {{!-- products details looping --}}
         {{#each products}}
         <div class="col-lg-4 col-sm-6 col-12">
             <div class="card item-card" style="width: 22rem;">
@@ -42,11 +54,17 @@
                         style="display: inline-block;">+
                         Add</button>
                 </div>
+                {{!-- card-body --}}
             </div>
+            {{!-- card --}}
         </div>
+        {{!-- grid-column --}}
         {{/each}}
+        {{!-- products details looping --}}
     </div>
+    {{!-- grid-row --}}
 </div>
+{{!-- container --}}
 
 <section class="about-us mt-5">
     <div class="container">
@@ -68,6 +86,8 @@
 
                 <a href="#" class="btn">Know more about us</a>
             </div>
+            {{!-- grid-column --}}
+
             <div class="col-lg-6 mt-5 icon-about">
                 <div class="row">
                     <div class="col-6">
@@ -76,29 +96,45 @@
                         </div>
                         <h4 class="mb-5 ml-3">Right food baked with natural ingredient</h4>
                     </div>
+                    {{!-- grid-column --}}
+
                     <div class="col-6">
                         <div class="icon ml-5">
                             <img src="/images/burger_icon.png" style="width: 32px;height: 32px;" alt="">
                         </div>
+                        {{!-- icon --}}
                         <h4 class="mb-5 ml-3">The use of natural best quality products</h4>
                     </div>
+                    {{!-- grid-column --}}
+
                     <div class="col-6">
                         <div class="icon ml-5">
                             <img src="/images/burgernddring_icon.png" style="width: 32px;height: 32px;" alt="">
                         </div>
+                        {{!-- icon --}}
                         <h4 class="ml-3">World's best chef and Nutritionist!</h4>
                     </div>
+                    {{!-- grid-column --}}
+
                     <div class="col-6">
                         <div class="icon ml-5">
                             <img src="/images/delivery_icon.png" style="width: 32px;height: 32px;" alt="">
                         </div>
+                        {{!-- icon --}}
                         <h4 class="ml-3">Fastest delivery on your door step</h4>
                     </div>
+                    {{!-- grid-column --}}
                 </div>
+                {{!-- grid-row --}}
             </div>
+            {{!-- grid-column --}}
         </div>
+        {{!-- grid-row --}}
     </div>
+    {{!-- container --}}
 </section>
+
+{{!-- footer --}}
 <footer class="mainFooter" role="contentinfo">
     <div class="footer-middle">
         <div class="container">
@@ -111,21 +147,30 @@
                         <p>Kerala,pin:670003</p>
                         <p>pizzahub@gmail.com</p>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
+
                 <div class="col-md-3 col-sm-6 my-3">
                     <div class="footer-pad">
                         <h4>Opening Hours</h4>
                         <p>Monday-Friday</p>
                         <p>09.00 am - 10.00 pm</p>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
+
                 <div class="col-md-3 col-sm-6 my-3">
                     <div class="footer-pad">
                         <h4>Book a Table</h4>
                         <p>Eating Hot and Spicy Pizza is best thing to consider</p>
                         <p>+91 8848474156</p>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
+
                 <div class="col-md-3 col-sm-6 my-3 mb-5">
                     <div class="footer-pad">
                         <h4>Follow Us</h4>
@@ -141,54 +186,21 @@
                             </a>
                         </div>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
             </div>
+            {{!-- grid-row --}}
 
             <div class="row">
                 <div class="col-md-12 copyright">
                     <p class="text-center">© Copyright 2021 - Pizza Hub. All rights reserved.</p>
                 </div>
+                {{!-- grid-column --}}
             </div>
+            {{!-- grid-row --}}
         </div>
+        {{!-- container --}}
     </div>
+    {{!-- footer-middle --}}
 </footer>
-
-
-
-<style>
-    .notify{  
-    position:fixed;
-    z-index: 10000;
-    top:20px;
-    width:350px;
-    right: 10px;
-    height:0;  
-    box-sizing:border-box;
-    color:white;  
-    text-align:center;
-    background:#f86503f3;
-    border-radius: 25px;
-    overflow:hidden;
-    box-sizing:border-box;
-    transition:height .2s;
-  }
-  #notifyType:before{
-    display:block;
-    margin-top:15px; 
-    
-  }
-  
-  .active{  
-    height:50px;
-  }
-  
-  .success:before{
-    Content:"item added to the cart!";
-  }
-  
-  @media only screen and (max-width:576px){
-    .notify{
-        width: 250px;
-    }
-}
-</style>

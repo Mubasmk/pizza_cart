@@ -1,9 +1,12 @@
+{{!-- order-track page stylesheet --}}
 <link rel="stylesheet" href="/stylesheets/order-tracking.css">
+{{!-- order-track page stylesheet --}}
 
 <div class="container">
     <article class="card">
         <header class="card-header"> My Orders / Tracking </header>
         <div class="card-body">
+            {{!-- order details looping --}}
             {{#each orders}}
             <h6>Order ID: {{this._id}}</h6>
             <article class="card">
@@ -14,8 +17,10 @@
                     <div class="col"> <strong>Status:</strong> <br> {{status}} </div>
                     <div class="col"> <strong>Tracking #:</strong> <br> BD045903594059 </div>
                 </div>
+                {{!-- grid-row --}}
             </article>
             {{/each}}
+            {{!-- order details looping --}}
             <div class="track">
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span
                         class="text">Order confirmed</span> </div>
@@ -26,8 +31,10 @@
                 <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">Ready for
                         pickup</span> </div>
             </div>
+            {{!-- track --}}
             <hr>
             <ul class="row">
+                {{!-- product details looping --}}
                 {{#each products}}
                 <li class="col-md-4">
                     <figure class="itemside mb-3">
@@ -41,6 +48,7 @@
                     </figure>
                 </li>
                 {{/each}}
+                {{!-- product details looping --}}
             </ul>
             <hr>
             <a href="/my-order" class="btn btn-warning" data-abc="true" style="font-size: 13px; width: 145px"> <i
@@ -48,10 +56,12 @@
             <a href="/" class="btn btn-warning float-right" data-abc="true" style="font-size: 13px; width: 145px">
                 Continue shopping <i class="fa fa-chevron-right"></i></a>
         </div>
+        {{!-- card-body --}}
     </article>
 </div>
+{{!-- container --}}
 
-
+{{!-- footer --}}
 <footer class="mainFooter" style="margin-bottom: -50px !important;" role="contentinfo">
     <div class="footer-middle">
         <div class="container">
@@ -64,21 +74,27 @@
                         <p>Kerala,pin:670003</p>
                         <p>pizzahub@gmail.com</p>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
                 <div class="col-md-3 col-sm-6 my-3">
                     <div class="footer-pad">
                         <h4>Opening Hours</h4>
                         <p>Monday-Friday</p>
                         <p>09.00 am - 10.00 pm</p>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
                 <div class="col-md-3 col-sm-6 my-3">
                     <div class="footer-pad">
                         <h4>Book a Table</h4>
                         <p>Eating Hot and Spicy Pizza is best thing to consider</p>
                         <p>+91 8848474156</p>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
                 <div class="col-md-3 col-sm-6 my-3 mb-5">
                     <div class="footer-pad">
                         <h4>Follow Us</h4>
@@ -94,14 +110,21 @@
                             </a>
                         </div>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
             </div>
+            {{!-- grid-row --}}
 
             <div class="row">
                 <div class="col-md-12 copyright">
                     <p class="text-center">© Copyright 2021 - Pizza Hub. All rights reserved.</p>
                 </div>
+                {{!-- grid-column --}}
             </div>
+            {{!-- grid-row --}}
         </div>
+        {{!-- container --}}
     </div>
+        {{!-- footer-middle --}}
 </footer>

@@ -8,9 +8,8 @@ a {
     display:inline-block;
     text-decoration: none;
     font-weight: 400;
-  }
-  
-  h2 {
+}
+h2 {
     text-align: center;
     font-size: 16px;
     font-weight: 600;
@@ -18,12 +17,8 @@ a {
     display:inline-block;
     margin: 40px 8px 10px 8px; 
     color: #cccccc;
-  }
-
-
-  /* STRUCTURE */
-  
-  .wrapper {
+}  
+.wrapper {
     display: flex;
     align-items: center;
     flex-direction: column; 
@@ -34,13 +29,12 @@ a {
     position: relative;
     animation: mymove 2s;
     animation-fill-mode: forwards;
-  }
-  @keyframes mymove{
+}
+@keyframes mymove{
     from {top: -130px;}
     to {top: 30px;}
-  }
-  
-  #formContent {
+}  
+#formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: #fff;
@@ -52,48 +46,45 @@ a {
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
-  }
-  #loginTitle{
+}
+#loginTitle{
     font-size: 2em;
     margin: 10px 0;
 }
 .login-input{
-  background-color: #f6f6f6 !important;
-  /* color: #0d0d0d !important; */
-  padding: 15px 32px;
-  border: none;
-  border-radius: 7px;
-  width: 95%;
+    background-color: #f6f6f6 !important;
+    padding: 15px 32px;
+    border: none;
+    border-radius: 7px;
+    width: 95%;
 }
 input[type=submit]{
-  background-color: #f52b07;
-  border: none;
-  color: white;
-  padding: 15px 80px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  text-transform: uppercase;
-  font-size: 13px;
-  border-radius: 7px;
+    background-color: #f52b07;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-radius: 7px;
 }
 input[type=submit]:hover{
-  background-color: #d42b0e;
+    background-color: #d42b0e;
 }
 .form-group select {
-  text-align: center;
-  width: 100%;
-  text-align-last: center;
-  color: #999;
+    text-align: center;
+    width: 100%;
+    text-align-last: center;
+    color: #999;
 }
-
 .form-group select option {
-  color: grey !important;
-  font-size: 14px;
+    color: grey !important;
+    font-size: 14px;
 }
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }

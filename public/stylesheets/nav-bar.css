@@ -93,7 +93,7 @@
     border-top: 1px solid #fff;
 }
 
-
+/* Media Queries */
 @media only screen and (max-width:450px){
     .nav-title{
     font-size: 2em;
@@ -115,6 +115,7 @@
         top: 5px;
     }
 }
+
 @media only screen and (min-width:426px) and (max-width:575px){
     #cart-icon{
         margin-right: 10px;
@@ -123,12 +124,14 @@
         margin-left: 110px;
     }
 }
+
 @media only screen and (min-width:576px) and (max-width:992px){
     .navbar button{
         margin-left: auto;
         margin-right: 10px;
     }
 }
+
 @media only screen and (max-width:575px){
     .footer-pad h4{
         font-size: 1.2rem;
@@ -154,29 +157,32 @@
         right: 0px;
     }
 }
+
 @media only screen and (min-width:576px) and (max-width:768px){
     .social-btns{
-            position: absolute;
-            top: 20px;
-        }
+        position: absolute;
+        top: 20px;
     }
-    @media only screen and (min-width:769px) and (max-width:992px){
-        .social-btns{
-            position: absolute;
-            top: 20px;
-            right: 0px;
-        }
-    
+}
+
+@media only screen and (min-width:769px) and (max-width:992px){
+    .social-btns{
+        position: absolute;
+        top: 20px;
+        right: 0px;
     }
-    @media only screen and (min-width:993px) and (max-width:1200px){
-        .social-btns .btn{
-            width: 30px;
-            height: 30px;
-            line-height: 15px;
-            padding: 5px;
-        }
-        .social-btns{
-            position: absolute;
-            right: 95px;
-        }
+}
+
+@media only screen and (min-width:993px) and (max-width:1200px){
+    .social-btns .btn{
+        width: 30px;
+        height: 30px;
+        line-height: 15px;
+        padding: 5px;
     }
+    .social-btns{
+        position: absolute;
+        right: 95px;
+    }
+}
+/* Media Queries */

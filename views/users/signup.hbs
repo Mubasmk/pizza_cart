@@ -1,13 +1,17 @@
+{{!-- user authentication stylesheet --}}
 <link rel="stylesheet" href="/stylesheets/user-auth.css">
+{{!-- user authentication stylesheet --}}
 
 <section>
     <div class="wrapper fadeInDown">
             <div id="formContent">
         <div class="container p-4">
             <div class="fadeIn first">
+                {{!-- brand logo --}}
                 <img src="/images/pizza_hut_logo-removebg.png" id="icon" alt="brand logo">
                 <h2 id="logo-head">Pizza Hub</h2>
             </div>
+            {{!-- fadeIn --}}
 
             <form action="/signup" method="POST" onsubmit="return validation()">
                 <h3 id="loginTitle">Create Account</h3>
@@ -32,12 +36,19 @@
                 <input type="submit" class="fadeIn" value="Sign up">
             </form>
         </div>
+        {{!-- container --}}
+
             <div id="login-footer">
                 <a href="/login" class="underlineHover" style="color: #f52b07;">Already have an account ?</a>
             </div>
+            {{!-- login-footer --}}
         </div>
+        {{!-- formContent --}}
     </div>
+    {{!-- wrapper --}}
 </section>
+
+{{!-- footer --}}
 <footer class="mainFooter" role="contentinfo">
     <div class="footer-middle">
         <div class="container">
@@ -50,21 +61,30 @@
                         <p>Kerala,pin:670003</p>
                         <p>pizzahub@gmail.com</p>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
+
                 <div class="col-md-3 col-sm-6 my-3">
                     <div class="footer-pad">
                         <h4>Opening Hours</h4>
                         <p>Monday-Friday</p>
                         <p>09.00 am - 10.00 pm</p>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
+
                 <div class="col-md-3 col-sm-6 my-3">
                     <div class="footer-pad">
                         <h4>Book a Table</h4>
                         <p>Eating Hot and Spicy Pizza is best thing to consider</p>
                         <p>+91 8848474156</p>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
+
                 <div class="col-md-3 col-sm-6 my-3 mb-5">
                     <div class="footer-pad">
                         <h4>Follow Us</h4>
@@ -80,36 +100,43 @@
                             </a>
                         </div>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
             </div>
+            {{!-- grid-row --}}
 
             <div class="row">
                 <div class="col-md-12 copyright">
                     <p class="text-center">© Copyright 2021 - Pizza Hub. All rights reserved.</p>
                 </div>
+                {{!-- grid-column --}}
             </div>
+            {{!-- grid-row --}}
         </div>
+        {{!-- container --}}
     </div>
+    {{!-- footer-middle --}}
 </footer>
 
-
+{{!-- form validation script --}}
 <script>
     function validation(){
         var pw=document.getElementById("password").value;
         var verpw=document.getElementById("confirm-password").value;
         var email=document.getElementById('email').value;
         
-        {{!-- check empty password field --}}
+        //check empty password field
         if(pw==""){
             document.getElementById("pass-msg").innerHTML="pill the password !";
             return false;
         }
-        {{!-- minimum length of password validation --}}
+        //minimum length of password validation
         if(pw.length<8){
             document.getElementById('pass-msg').innerHTML="password length must be atleat 8 characters !";
             return false;
         }
-        {{!-- maximum length of password validation --}}
+        //maximum length of password validation
         if(pw.length>15){
             document.getElementById('pass-msg').innerHTML="password length must not exceed 15 characters !";
             return false; 

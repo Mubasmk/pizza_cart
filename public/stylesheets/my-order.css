@@ -2,7 +2,6 @@ body {
     background-color: #eee;
     font-family: 'poppins', sans-serif;
 }
-
 .cont {
     background-color: white;
     border: 1px solid lightgray;
@@ -10,23 +9,19 @@ body {
     overflow: hidden;
 
 }
-
 .order-head {
     color: grey;
     font-size: 13px;
 }
-
 .cart-table h3 {
     font-size: 20px;
 }
-
 tbody tr td,
 .prod-id {
     font-size: 15px;
     color: black;
     font-weight: 500;
 }
-
 .item-btn {
     text-decoration: none !important;
     border: 1px solid #dc3545;
@@ -40,22 +35,18 @@ tbody tr td,
     color: white;
     background: #dc3545;
 }
-
 .prod-id:hover {
     color: rgb(182, 19, 19) !important;
 }
-
 .cart-footer .home-btn {
     width: 160px;
     margin-top: 10px;
     margin-bottom: 10px;
     color: #dc3545;
 }
-
 .cart-footer .home-btn:hover {
     text-decoration: underline;
 }
-
 .underlineHover::after {
     display: block;
     left: 0px;
@@ -66,18 +57,17 @@ tbody tr td,
     content: "";
     transition: width 0.2s;
 }
-
 .underlineHover:hover::after {
     width: 100%;
 }
 
+/* Media Queries */
 @media only screen and (max-width:768px) {
-
-    tbody tr td,
-    .prod-id {
+    tbody tr td, .prod-id {
         font-size: 11px;
     }
 }
+
 @media only screen and (max-width:500px){
     .table td, .table th{
         padding: 10px 10px 10px 0;
@@ -89,3 +79,4 @@ tbody tr td,
         font-size: 11px;
     }
 }
+/* Media Queries */

@@ -179,6 +179,6 @@ router.post('/verify-payment', (req, res) => {
 // get users contact page
 router.get('/contact', (req, res) => {
     res.render('users/contact')
-})
+});
 
 module.exports = router;

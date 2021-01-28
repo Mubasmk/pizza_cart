@@ -8,9 +8,8 @@ a {
     display:inline-block;
     text-decoration: none;
     font-weight: 400;
-  }
-  
-  h2 {
+}
+h2 {
     text-align: center;
     font-size: 16px;
     font-weight: 600;
@@ -18,12 +17,8 @@ a {
     display:inline-block;
     margin: 40px 8px 10px 8px; 
     color: #cccccc;
-  }
-
-
-  /* STRUCTURE */
-  
-  .wrapper {
+} 
+.wrapper {
     display: flex;
     align-items: center;
     flex-direction: column; 
@@ -34,13 +29,12 @@ a {
     position: relative;
     animation: mymove 1s;
     animation-fill-mode: forwards;
-  }
-  @keyframes mymove{
+}
+@keyframes mymove{
     from {top: -130px;}
     to {top: 30px;}
-  }
-  
-  #formContent {
+}  
+#errorContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: #fff;
@@ -52,36 +46,32 @@ a {
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
-  }
-  
-  #formFooter {
+}  
+#errorFooter {
     background-color: #f6f6f6;
     border-top: 1px solid #dce8f1;
     padding: 25px;
     text-align: center;
     -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
-  }
-  
-
-
+}
 .underlineHover::after{
-  display: block;
-  left: 0px;
-  bottom: -10px;
-  width: 0px;
-  height: 2px;
-  background-color: #f52b07;
-  content: "";
-  transition: width 0.2s;
+    display: block;
+    left: 0px;
+    bottom: -10px;
+    width: 0px;
+    height: 2px;
+    background-color: #f52b07;
+    content: "";
+    transition: width 0.2s;
 }
 .underlineHover:hover::after{
-  width: 100%;
+    width: 100%;
 }
-#login-footer{
-  background-color: #f6f6f6;
-  border-top: 1px solid #dce8f1;
-  padding: 25px;
-  text-align: center;
-  border-radius: 0 0 10px 10px;
+.check-logo{
+    margin: 0px 0 10px 0;
+    font-size: 16px; 
+    border: 5px solid rgb(10, 190, 10);
+    color: rgb(10, 190, 10); 
+    border-radius: 50%;
 }

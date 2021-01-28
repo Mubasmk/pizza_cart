@@ -1,7 +1,9 @@
+{{!-- place order page stylesheet --}}
 <link rel="stylesheet" href="/stylesheets/place-order.css">
+{{!-- place order page stylesheet --}}
+
 
 <section>
-
     <div class="wrapper fadeInDown">
         <div id="formContent">
             <div class="container p-4">
@@ -55,12 +57,9 @@
                                 <br><span id="mobile-msg" class="text-danger"></span><br>
                             </div>
                             <input type="text" name="userId " value="{{user._id}}" hidden>
-
                         </form>
-
                     </div>
-                    {{!-- section one --}}
-
+                    {{!-- grid-column --}}
 
                     <div class="col-md-6">
                         <div class="price-details-box" style="border: 1px solid lightgray;">
@@ -75,11 +74,10 @@
                             <p class="ml-2" style="text-align: left; font-size: 14px;">Total Payable <span
                                     class="float-right mr-4">₹ <span class="text-danger">{{total}}</span>/-</span>
                             </p>
-
-
                         </div>
-                        <div class="payment-box" style="border: 1px solid lightgray; margin-top: 80px;">
+                        {{!-- price-details-box --}}
 
+                        <div class="payment-box" style="border: 1px solid lightgray; margin-top: 80px;">
                             <div style="background-color: #f52b07;padding-bottom: 7px;">
                                 <h6 class="text-light pt-3" style="font-size: 16px;">Payment Method</h6>
                             </div>
@@ -91,19 +89,22 @@
                                 <label><input type="radio" class="mb-3" form="checkout-form" name="payment-method"
                                         value="Paytm"><b>&nbsp;&nbsp;Paytm</b></label>
                             </div>
-
                         </div>
+                        {{!-- payment-box --}}
                     </div>
-
-                    {{!-- row    --}}
+                    {{!-- grid-column --}}
                 </div>
+                {{!-- grid-row --}}
                 <input type="submit" class="fadeIn" form="checkout-form" value="Submit">
-                {{!-- container --}}
             </div>
-            {{!-- form content --}}
+            {{!-- container --}}
         </div>
+        {{!-- formContent --}}
     </div>
+    {{!-- wrapper --}}
 </section>
+
+{{!-- footer --}}
 <footer class="mainFooter" role="contentinfo">
     <div class="footer-middle">
         <div class="container">
@@ -116,21 +117,27 @@
                         <p>Kerala,pin:670003</p>
                         <p>pizzahub@gmail.com</p>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
                 <div class="col-md-3 col-sm-6 my-3">
                     <div class="footer-pad">
                         <h4>Opening Hours</h4>
                         <p>Monday-Friday</p>
                         <p>09.00 am - 10.00 pm</p>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
                 <div class="col-md-3 col-sm-6 my-3">
                     <div class="footer-pad">
                         <h4>Book a Table</h4>
                         <p>Eating Hot and Spicy Pizza is best thing to consider</p>
                         <p>+91 8848474156</p>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
                 <div class="col-md-3 col-sm-6 my-3 mb-5">
                     <div class="footer-pad">
                         <h4>Follow Us</h4>
@@ -146,28 +153,34 @@
                             </a>
                         </div>
                     </div>
+                    {{!-- footer-pad --}}
                 </div>
+                {{!-- grid-column --}}
             </div>
+            {{!-- grid-row --}}
 
             <div class="row">
                 <div class="col-md-12 copyright">
                     <p class="text-center">© Copyright 2021 - Pizza Hub. All rights reserved.</p>
                 </div>
+                {{!-- grid-column --}}
             </div>
+            {{!-- grid-row --}}
         </div>
+        {{!-- container --}}
     </div>
+    {{!-- footer-middle --}}
 </footer>
 
-
+{{!-- form validation script --}}
 <script>
-
     function validation() {
         var delAdd = document.getElementById("delAddress").value;
         var delCity = document.getElementById("delCity").value;
         var delPincode = document.getElementById("delPincode").value;
         var delMobile = document.getElementById('delMobile').value;
 
-
+        //check empty input field
         if (delAdd == "") {
             document.getElementById("address-msg").innerHTML = "enter address";
             return false;
@@ -176,6 +189,8 @@
             document.getElementById("city-msg").innerHTML = "choose your city";
             return false;
         }
+        
+        //check required length of pincode/phone number
         else if (delPincode.length < 1) {
             document.getElementById("pincode-msg").innerHTML = "enter pincode";
             return false;
@@ -184,10 +199,11 @@
             document.getElementById("mobile-msg").innerHTML = "enter mobile number";
             return false;
         }
-
         else if (delMobile.length < 10) {
             document.getElementById('mobile-msg').innerHTML = "enter valid number";
             return false;
+        
+       // if no error msg move to following ajax function
         } else {
             $.ajax({
                 url: '/place-order',
@@ -203,22 +219,9 @@
             })
         }
     }
-    {{!-- $('#checkout-form').submit((e)=>{
-        e.preventDefault()
-        $.ajax({
-                url: '/place-order',
-                method: 'post',
-                data: $('#checkout-form').serialize(),
-                success: (response) => {
-                    if (response.codStatus) {
-                        location.href = '/order-success'
-                    } else {
-                        razorpayPayment(response);
-                    }
-                }
-            })
-    }) --}}
     
+    //razorpay function
+
     function razorpayPayment(order) {
         var options = {
             "key": "rzp_test_xaxHRF6TFiQXJN", // Enter the Key ID generated from the Dashboard
@@ -245,9 +248,9 @@
         };
         var rzp1 = new Razorpay(options);
          rzp1.open();
+        
+        //verify payment function
         function verifyPayment(payment,order){
-                    
-                        console.log("resssssss:",payment,order)
             $.ajax({
                 url:'/verify-payment',
                 data:{
@@ -266,5 +269,4 @@
             })
         }
     }
-
 </script>

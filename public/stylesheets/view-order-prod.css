@@ -3,14 +3,12 @@ body {
     font-family: 'poppins', sans-serif;
     height: 100vh;
 }
-
 a {
     color: #92badd;
     display: inline-block;
     text-decoration: none;
     font-weight: 400;
 }
-
 h2 {
     text-align: center;
     font-size: 16px;
@@ -20,10 +18,6 @@ h2 {
     margin: 40px 8px 10px 8px;
     color: #cccccc;
 }
-
-
-/* STRUCTURE */
-
 .wrapper {
     display: flex;
     align-items: center;
@@ -36,7 +30,6 @@ h2 {
     animation: mymove 2s;
     animation-fill-mode: forwards;
 }
-
 @keyframes mymove {
     from {
         top: -130px;
@@ -45,7 +38,6 @@ h2 {
         top: 30px;
     }
 }
-
 #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
@@ -57,9 +49,7 @@ h2 {
     padding: 0px;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-    /* text-align: center; */
 }
-
 td img {
     height: 100px;
     width: 100px;
@@ -71,11 +61,9 @@ td img {
     margin-bottom: 10px;
     color: #dc3545;
 }
-
 .cart-footer .home-btn:hover {
     text-decoration: underline;
 }
-
 .underlineHover::after {
     display: block;
     left: 0px;
@@ -86,11 +74,11 @@ td img {
     content: "";
     transition: width 0.2s;
 }
-
 .underlineHover:hover::after {
     width: 100%;
 }
 
+/* Media Queries */
 @media only screen and (max-width:768px) {
     #formContent {
         max-width: 100%;
@@ -102,3 +90,4 @@ td img {
         font-size: 13px;
     }
 }
+/* Media Queries */

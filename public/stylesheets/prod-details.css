@@ -1,0 +1,93 @@
+body {
+    background-color: #eeeeee;
+    font-family: 'Open Sans', serif
+}
+.item-details button {
+    background-color: unset;
+    border-color: #dc3545;
+    color: #dc3545;
+    border-radius: 10px;
+    width: 235px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+.item-details button:focus {
+    box-shadow: none;
+}
+.item-details button:hover {
+    background-color: #dc3545;
+    color: white;
+}
+.item-details .item-desc-head {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.item-details p {
+    font-size: 14px;
+}
+.item-price {
+    margin-top: 15px;
+}
+.card {
+    animation: mymove 3s;
+    animation-fill-mode: forwards;
+    position: relative;
+}
+@keyframes mymove {
+    from {
+        top: -140px;
+    }
+
+    to {
+        top: 20px;
+    }
+}
+.notify {
+    position: fixed;
+    z-index: 10000;
+    top: 20px;
+    width: 350px;
+    right: 10px;
+    height: 0;
+    box-sizing: border-box;
+    color: white;
+    text-align: center;
+    background: #f86503f3;
+    border-radius: 25px;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: height .2s;
+}
+#notifyType:before {
+    display: block;
+    margin-top: 15px;
+}
+.active {
+    height: 50px;
+}
+.success:before {
+    Content: "item added to the cart!";
+}
+
+/* Media Queries */
+@media only screen and (max-width:576px) {
+    .notify {
+        width: 250px;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .item-img {
+        margin-left: 5px;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .item-img {
+        margin-top: 0px !important;
+    }
+    .card {
+        border-radius: 15px;
+    }
+}
+/* Media Queries */

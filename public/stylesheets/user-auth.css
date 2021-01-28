@@ -8,9 +8,8 @@ a {
     display:inline-block;
     text-decoration: none;
     font-weight: 400;
-  }
-  
-  h2 {
+}
+h2 {
     text-align: center;
     font-size: 16px;
     font-weight: 600;
@@ -18,12 +17,8 @@ a {
     display:inline-block;
     margin: 40px 8px 10px 8px; 
     color: #cccccc;
-  }
-
-
-  /* STRUCTURE */
-  
-  .wrapper {
+}  
+.wrapper {
     display: flex;
     align-items: center;
     flex-direction: column; 
@@ -34,13 +29,12 @@ a {
     position: relative;
     animation: mymove 1s;
     animation-fill-mode: forwards;
-  }
-  @keyframes mymove{
+}
+@keyframes mymove{
     from {top: -130px;}
     to {top: 30px;}
-  }
-  
-  #formContent {
+}  
+#formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: #fff;
@@ -52,18 +46,15 @@ a {
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
-  }
-  
-  #formFooter {
+}  
+#formFooter {
     background-color: #f6f6f6;
     border-top: 1px solid #dce8f1;
     padding: 25px;
     text-align: center;
     -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
-  }
-  
-
+}
 .first #icon {
     width: 100px;
     padding: 2em 0;
@@ -80,7 +71,6 @@ a {
 }
 .login-input{
   background-color: #f6f6f6 !important;
-  /* color: #0d0d0d !important; */
   padding: 15px 32px;
   border: none;
   border-radius: 7px;
