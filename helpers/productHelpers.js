@@ -1,6 +1,6 @@
 var db=require('../config/connection');
 var collection=require('../config/collections');
-const { resolve } = require('promise');
+const { resolve, reject } = require('promise');
 const { PRODUCT_COLLECTION } = require('../config/collections');
 var objectId=require('mongodb').ObjectID;
 
@@ -28,7 +28,26 @@ module.exports={
         return new Promise((resolve,reject)=>{
             db.get().collection(collection.PRODUCT_COLLECTION).removeOne({_id:objectId(proId)}).then((response)=>{
                 resolve(response);
-            })
-        })
+            });
+        });
+    },
+    updateProduct:(proId,proDetails)=>{
+        proDetails.Price=parseInt(proDetails.Price);
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.PRODUCT_COLLECTION).updateOne({_id:objectId(proId)},
+            {
+                $set:{
+                    Title:proDetails.Title,
+                    Item:proDetails.Item,
+                    Category:proDetails.Category,
+                    Variety:proDetails.Variety,
+                    Price:proDetails.Price,
+                    Description:proDetails.Description,
+                    Ingredients:proDetails.Ingredients
+                }
+            }).then((response)=>{
+                resolve();
+            });
+        });
     }
 }

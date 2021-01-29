@@ -30,7 +30,7 @@
           </td>
           <td class="py-5">₹ {{this.Price}}/-</td>
           <td class="pt-5">
-            <a href="/admin/edit-products" class="btn mr-2 action-btn">Edit</a>
+            <a href="/admin/update-products/{{this._id}}" class="btn mr-2 action-btn">Edit</a>
             <a href="/admin/delete-products/{{this._id}}"
               onclick="return confirm('Are you sure want to delete {{this.Title}} {{this.Item}}')"
               class="btn action-btn">Delete</a>

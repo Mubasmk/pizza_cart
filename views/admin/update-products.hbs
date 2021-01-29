@@ -1,0 +1,87 @@
+
+{{!-- product update page stylesheet --}}
+<link rel="stylesheet" href="/stylesheets/update-products.css">
+{{!-- product update page stylesheet --}}
+
+
+<section>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <div class="container p-4">
+                <h3 id="Title" class="text-muted mb-4 " style="font-size: 20px;">Edit Products</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <form action="/admin/update-products/{{products._id}}" id="product-form" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input type="text" name="Title" value="{{products.Title}}" class="fadeIn product-input text-center"
+                                    placeholder="product title">
+                            </div>
+                            <div class="form-group">
+                                <select name="Item"  class="fadeIn product-input" style="max-width: 95%;">
+                                    <option hidden>Item</option>
+                                    <option hidden selected>{{products.Item}}</option>
+                                    <option>Pizza</option>
+                                    <option>Burger</option>
+                                    <option>Sandwich</option>
+                                    <option>Shawarma</option>
+                                    <option>Donut</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select name="Category" class="fadeIn product-input" style="max-width: 95%;">
+                                    <option hidden>Category</option>
+                                    <option hidden selected>{{products.Category}}</option>
+                                    <option>Veg</option>
+                                    <option>Non Veg</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select name="Variety" class="fadeIn product-input" style="max-width: 95%;">
+                                    <option hidden>Variety</option>
+                                    <option hidden selected>{{products.Variety}}</option>
+                                    <option>Italian</option>
+                                    <option>Fusion</option>
+                                    <option>Continental</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" value="{{products.Price}}" name="Price" class="fadeIn product-input text-center"
+                                    placeholder="price">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Description" value="{{products.Description}}" class="fadeIn product-input text-center"
+                                    placeholder="description">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Ingredients" value="{{products.Ingredients}}" class="fadeIn product-input text-center"
+                                    placeholder="Ingredients">
+                            </div>
+                            <div class="form-group">
+                                <input type="file" name="Image" onchange="imageView(event)" class="fadeIn product-input text-center"
+                                    placeholder="Image">
+                            </div>
+                        </form>
+                    </div>
+                    {{!-- grid-column --}}
+
+                    <div class="col-md-6">
+                        <img src="/images/{{products._id}}.jpg" class="view-img" id="viewImg" alt="">
+                    </div>
+                    {{!-- grid-column --}}
+                </div>
+                {{!-- grid-row --}}
+                <input type="submit" class="fadeIn" form="product-form" value="Submit">
+            </div>
+            {{!-- container --}}
+        </div>
+        {{!-- formContent --}}
+    </div>
+    {{!-- wrapper --}}
+</section>
+
+{{!-- change image view script --}}
+<script>
+    function imageView(event){
+        document.getElementById('viewImg').src=URL.createObjectURL(event.target.files[0])
+    }
+</script>
