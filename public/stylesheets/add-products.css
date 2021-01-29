@@ -1,0 +1,92 @@
+body{
+    background-color: #eee;
+    font-family: 'poppins',sans-serif;
+    height: 100vh;
+}
+a {
+    color: #92badd;
+    display:inline-block;
+    text-decoration: none;
+    font-weight: 400;
+}
+h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display:inline-block;
+    margin: 40px 8px 10px 8px; 
+    color: #cccccc;
+}  
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+    position: relative;
+    animation: mymove 2s;
+    animation-fill-mode: forwards;
+}
+@keyframes mymove{
+    from {top: -130px;}
+    to {top: 30px;}
+}  
+#formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 100%;
+    max-width: 50%;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+}
+#addTitle{
+    font-size: 2em;
+    margin: 10px 0;
+}
+.add-input{
+    background-color: #f6f6f6 !important;
+    padding: 15px 32px;
+    border: none;
+    border-radius: 7px;
+    width: 95%;
+}
+.add-input::placeholder{
+    color: #999 !important;
+}
+input[type=submit]{
+    background-color: #f52b07;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-radius: 7px;
+}
+input[type=submit]:hover{
+    background-color: #d42b0e;
+}
+.form-group select {
+    text-align: center;
+    width: 100%;
+    color: #999;
+}
+.form-group select option {
+    color: grey !important;
+    font-size: 14px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

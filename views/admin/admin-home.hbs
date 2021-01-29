@@ -1,23 +1,46 @@
-<section>
-    <div class="container">
-        <a href="/admin/add-products" class="btn btn-success">Add Product</a>
-        <table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-  </tbody>
-</table>
-    </div>
+{{!-- stylesheet for admin home --}}
+<link rel="stylesheet" href="/stylesheets/admin-home.css">
+{{!-- stylesheet for admin home --}}
+
+<section class="item-table mb-2">
+  <div class="container cont mt-5">
+    <table class="table">
+      <h3 class="text-muted ml-3 mt-3 mb-3">All Products
+        <span class="float-right mr-3 add-btn"><a href="/admin/add-products">+ Add</a></span>
+      </h3>
+      <thead>
+        <tr class="order-head text-center">
+          <th scope="col" class="d-none d-sm-block">Image</th>
+          <th scope="col">Item</th>
+          <th scope="col">Price</th>
+          <th scope="col">Action</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {{!-- products details looping --}}
+        {{#each products}}
+        <tr class="text-center">
+
+          <td class="d-none d-sm-block">
+            <img src="/images/{{this._id}}.jpg" alt="">
+          </td>
+          <td class="pt-4 item-title">{{this.Title}} {{this.Item}} <br>
+            <p class="mb-0">{{this.Variety}}<br>({{this.Category}})</p>
+          </td>
+          <td class="py-5">₹ {{this.Price}}/-</td>
+          <td class="pt-5">
+            <a href="/admin/edit-products" class="btn mr-2 action-btn">Edit</a>
+            <a href="/admin/delete-products/{{this._id}}"
+              onclick="return confirm('Are you sure want to delete {{this.Title}} {{this.Item}}')"
+              class="btn action-btn">Delete</a>
+          </td>
+        </tr>
+        {{/each}}
+        {{!-- products details looping --}}
+      </tbody>
+    </table>
+  </div>
+  {{!-- container --}}
 </section>
+{{!-- section --}}

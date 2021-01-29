@@ -1,48 +1,72 @@
+{{!-- add product page stylesheet --}}
+<link rel="stylesheet" href="/stylesheets/add-products.css">
+{{!-- add product page stylesheet --}}
+
+
 <section>
-    <div class="container">
-        <form action="/admin/add-products" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="">product title</label>
-            <input type="text" name="Title" id="" class="form-control" >
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <div class="container p-4">
+                <h3 id="addTitle" class="text-muted mb-4 " style="font-size: 20px;">Add Products</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="/admin/add-products" id="checkout-form" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input type="text" name="Title" class="fadeIn add-input"
+                                    placeholder="product title">
+                            </div>
+                            <div class="form-group">
+                                <select name="Item" class="fadeIn add-input" style="max-width: 95%;">
+                                    <option hidden>item</option>
+                                    <option>Pizza</option>
+                                    <option>Burger</option>
+                                    <option>Sandwich</option>
+                                    <option>Shawarma</option>
+                                    <option>Donut</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select name="Category" class="fadeIn add-input" style="max-width: 95%;">
+                                    <option hidden>category</option>
+                                    <option>Veg</option>
+                                    <option>Non Veg</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select name="Variety" class="fadeIn add-input" style="max-width: 95%;">
+                                    <option hidden>variety</option>
+                                    <option>Italian</option>
+                                    <option>Fusion</option>
+                                    <option>Continental</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="Price" class="fadeIn add-input"
+                                    placeholder="price">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Description" class="fadeIn add-input"
+                                    placeholder="description">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Ingredients" class="fadeIn add-input"
+                                    placeholder="ingredients">
+                            </div>
+                            <div class="form-group">
+                                <input type="file" name="Image" class="fadeIn add-input"
+                                    placeholder="image">
+                            </div>
+                            
+                        </form>
+                    </div>
+                    {{!-- grid-column --}}
+                </div>
+                {{!-- grid-row --}}
+                <input type="submit" class="fadeIn" form="checkout-form" value="Submit">
+            </div>
+            {{!-- container --}}
         </div>
-        <div class="form-group">
-            <label for="">Item</label>
-            <select name="Item" id="">
-                <option>Pizza</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="">Category</label>
-            <select name="Category" id="">
-                <option>VEG</option>
-                <option>NON VEG</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="">Variety</label>
-            <select name="Variety" id="">
-                <option>Italian</option>
-                <option>Fusion</option>
-                <option>Continental</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="">Price</label>
-            <input type="number" name="Price" id="" class="form-control" >
-        </div>
-        <div class="form-group">
-            <label for="">Description</label>
-            <input type="text" name="Description" id="" class="form-control" >
-        </div>
-        <div class="form-group">
-            <label for="">Ingredients</label>
-            <input type="text" name="Ingredients" id="" class="form-control" >
-        </div>
-        <div class="form-group">
-            <label for="">Image</label>
-            <input type="file" name="Image" id="" class="form-control" >
-        </div>
-        <button class="btn btn-success" type="submit">Submit</button>
-        </form>
+        {{!-- formContent --}}
     </div>
+    {{!-- wrapper --}}
 </section>
