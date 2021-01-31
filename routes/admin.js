@@ -2,6 +2,8 @@ const { response } = require('express');
 var express = require('express');
 var router = express.Router();
 var productHelper=require('../helpers/productHelpers');
+var userHelper=require('../helpers/userHelpers');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   productHelper.getAllProduct().then((products)=>{
@@ -73,6 +75,11 @@ router.get('/view-orders',(req,res)=>{
   productHelper.getAllOrders().then((orders)=>{
     console.log("order::",orders);
     res.render('admin/view-orders',{admin:true,orders});
-  })
+  });
+});
+
+router.get('/order-products/:id',async(req,res)=>{
+  let products=await userHelper.getUserOrderProduct(req.params.id);
+  res.render('admin/order-products',{products,admin:true});
 })
 module.exports = router;

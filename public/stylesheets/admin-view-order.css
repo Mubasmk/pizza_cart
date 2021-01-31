@@ -1,0 +1,78 @@
+body {
+    background-color: #eee;
+    font-family: 'poppins', sans-serif;
+}
+
+.cont {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.title-head {
+    color: grey;
+    font-size: 13px;
+}
+
+.order-table h3 {
+    font-size: 20px;
+}
+
+tbody tr td {
+    font-size: 13px;
+    color: black;
+    font-weight: 500;
+}
+
+.action-btn {
+    text-decoration: none !important;
+    /* background-color:  #f52b07; */
+    color: #f52b07 !important;
+    width: 40px;
+    padding-top: 0px !important;
+    /* padding: 5px; */
+    text-align: center;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.action-btn:hover {
+    color: grey !important;
+}
+.info p{
+    line-height: 10px;
+}
+table td{
+    max-width: 140px;
+}
+
+/* Media Queries */
+@media only screen and (max-width:768px) {
+    tbody tr td {
+        font-size: 11px;
+    }
+
+    .action-btn {
+        width: 40px;
+        font-size: 11px;
+        margin-right: 0 !important;
+    }
+    .table td,
+    .table th {
+        padding:0;
+    }
+}
+
+@media only screen and (max-width:575px) {
+
+    .table th {
+        font-size: 12px !important;
+    }
+
+    .item-btn {
+        font-size: 11px;
+    }
+}
+
+/* Media Queries */

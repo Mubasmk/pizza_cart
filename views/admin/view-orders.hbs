@@ -1,16 +1,16 @@
-{{!-- stylesheet for view users --}}
-<link rel="stylesheet" href="/stylesheets/view-users.css">
-{{!-- stylesheet for view users --}}
+{{!-- stylesheet for admin order page --}}
+<link rel="stylesheet" href="/stylesheets/admin-view-order.css">
+{{!-- stylesheet for admin order page --}}
 
 <section class="order-table mb-2">
     <div class="container cont mt-5">
         <table class="table">
-            <h3 class="text-muted text-center mt-3 mb-3">User Orders</h3>
+            <h3 class="text-muted text-center mt-3 mb-3">User's Order</h3>
             <thead>
                 <tr class="title-head">
                     <th scope="col">Order Id</th>
                     <th scope="col">Info</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Total</th>
                     <th scope="col">Date</th>
                     <th scope="col"></th>
 
@@ -29,10 +29,10 @@
                         <p class="mb-0 pb-0">near {{this.deliveryDetails.Landmark}}</p><br>
                         <p class="mb-0 pb-0">{{this.deliveryDetails.Mobile}}</p><br>
                     </td>
-                    <td style="padding-top: 76px;">{{status}}</td>
+                    <td style="padding-top: 76px;">₹ {{this.totalAmount}}/-</td>
                     <td style="padding-top: 76px;">{{date}}</td>
                     <td style="padding-top: 76px;">
-                        <a href="/admin/delete-user/{{this._id}}"
+                        <a href="/admin/order-products/{{this._id}}"
                             class="action-btn"><i class="fa fa-eye" aria-hidden="true"></i></a>
                     </td>
 
@@ -46,83 +46,3 @@
 </section>
 {{!-- section --}}
 
-<style>
-    body {
-    background-color: #eee;
-    font-family: 'poppins', sans-serif;
-}
-
-.cont {
-    background-color: white;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.title-head {
-    color: grey;
-    font-size: 13px;
-}
-
-.order-table h3 {
-    font-size: 20px;
-}
-
-tbody tr td {
-    font-size: 13px;
-    color: black;
-    font-weight: 500;
-}
-
-.action-btn {
-    text-decoration: none !important;
-    /* background-color:  #f52b07; */
-    color: #f52b07 !important;
-    width: 40px;
-    padding-top: 0px !important;
-    /* padding: 5px; */
-    text-align: center;
-    font-size: 18px;
-    border-radius: 10px;
-}
-
-.action-btn:hover {
-    color: grey !important;
-}
-.info p{
-    line-height: 10px;
-}
-table td{
-    max-width: 140px;
-}
-
-/* Media Queries */
-@media only screen and (max-width:768px) {
-    tbody tr td {
-        font-size: 11px;
-    }
-
-    .action-btn {
-        width: 40px;
-        font-size: 11px;
-        margin-right: 0 !important;
-    }
-    .table td,
-    .table th {
-        padding:0;
-    }
-}
-
-@media only screen and (max-width:575px) {
-
-    .table th {
-        font-size: 12px !important;
-    }
-
-    .item-btn {
-        font-size: 11px;
-    }
-}
-
-/* Media Queries */
-</style>
