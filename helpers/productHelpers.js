@@ -2,6 +2,7 @@ var db=require('../config/connection');
 var collection=require('../config/collections');
 const { resolve, reject } = require('promise');
 const { PRODUCT_COLLECTION } = require('../config/collections');
+const { response } = require('express');
 var objectId=require('mongodb').ObjectID;
 
 module.exports={
@@ -48,6 +49,25 @@ module.exports={
             }).then((response)=>{
                 resolve();
             });
+        });
+    },
+    getAllUsers:()=>{
+        return new Promise(async(resolve,reject)=>{
+            let users=await db.get().collection(collection.USER_COLLECTION).find().toArray();
+            resolve(users);
+        })
+    },
+    deleteUser:(userId)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.USER_COLLECTION).removeOne({_id:objectId(userId)}).then((response)=>{
+                resolve(response);
+            });
+        });
+    },
+    getAllOrders:()=>{
+        return new Promise(async(resolve,reject)=>{
+            let orders=await db.get().collection(collection.ORDER_COLLECTION).find().toArray();
+            resolve(orders);
         });
     }
 }

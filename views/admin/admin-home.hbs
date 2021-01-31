@@ -23,17 +23,20 @@
         <tr class="text-center">
 
           <td class="d-none d-sm-block">
-            <img src="/images/{{this._id}}.jpg" alt="">
+            <a href="/admin/product-details/{{this._id}}"><img src="/images/{{this._id}}.jpg" alt=""></a>
           </td>
-          <td class="pt-4 item-title">{{this.Title}} {{this.Item}} <br>
+          <td class="pt-4 item-title"><a href="/admin/product-details/{{this._id}}"
+          style="text-decoration: none;color: black;">{{this.Title}} {{this.Item}}</a> <br>
             <p class="mb-0">{{this.Variety}}<br>({{this.Category}})</p>
           </td>
           <td class="py-5">₹ {{this.Price}}/-</td>
           <td class="pt-5">
-            <a href="/admin/update-products/{{this._id}}" class="btn mr-2 action-btn">Edit</a>
+            <a href="/admin/update-products/{{this._id}}" class="btn mr-2 action-btn">
+            <i class="fa fa-pencil" aria-hidden="true"></i></a>
             <a href="/admin/delete-products/{{this._id}}"
               onclick="return confirm('Are you sure want to delete {{this.Title}} {{this.Item}}')"
-              class="btn action-btn">Delete</a>
+              class="btn action-btn">
+              <i class="fa fa-trash" aria-hidden="true"></i></a>
           </td>
         </tr>
         {{/each}}

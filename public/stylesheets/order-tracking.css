@@ -131,3 +131,6 @@ p {
     border-color: #ff2b00;
     border-radius: 1px
 }
+.mainFooter{
+    margin-bottom: -50px !important;
+}

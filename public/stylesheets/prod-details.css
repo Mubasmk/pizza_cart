@@ -11,6 +11,15 @@ body {
     margin-top: 10px;
     margin-bottom: 35px;
 }
+.item-details button {
+    background-color: unset;
+    border-color: #dc3545;
+    color: #dc3545;
+    border-radius: 10px;
+    width: 235px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
 .item-details button:focus {
     box-shadow: none;
 }
@@ -76,15 +85,29 @@ body {
     }
 }
 
+@media only screen and (min-width:1200px) {
+    .item-img img{
+        height: 410px;
+        border-radius: 10px 0 0 10px;
+        margin-top: 0px !important;
+    }
+}
 @media only screen and (min-width:768px) {
-    .item-img {
-        margin-left: 5px;
+    .card{
+        border-radius: 10px;
+    }
+    .item-img img{
+        margin-top: 30px;
     }
 }
 
 @media only screen and (max-width:767px) {
     .item-img {
         margin-top: 0px !important;
+        
+    }
+    .item-img img{
+        border-radius: 10px;
     }
     .card {
         border-radius: 15px;

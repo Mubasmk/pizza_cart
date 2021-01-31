@@ -44,7 +44,12 @@
     {{>user-header}}
     {{/if}}
     {{!-- partial header --}}
+    {{{body}}}
+    {{#if user}}
+    {{>user-footer}}
+    {{/if}}
 
+    
     {{!-- bootstrap script --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -56,7 +61,6 @@
     {{!-- external script --}}
         <script src="/javascripts/script.js"></script>
     {{!-- external script --}}
-    {{{body}}}
 </body>
 
 </html>

@@ -1,0 +1,39 @@
+{{!-- stylesheet for view users --}}
+<link rel="stylesheet" href="/stylesheets/view-users.css">
+{{!-- stylesheet for view users --}}
+
+<section class="user-table mb-2">
+    <div class="container cont mt-5">
+        <table class="table">
+            <h3 class="text-muted text-center mt-3 mb-3">Users</h3>
+            <thead>
+                <tr class="title-head text-center">
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{!-- users details looping --}}
+                {{#each users}}
+                <tr class="text-center">
+                    <td class="pt-4 item-title">{{this.user-name}}</td>
+                    <td class="pt-4">{{this.Email}}</td>
+                    <td class="pt-4">{{this.mobile}}</td>
+                    <td class="pt-4">
+                        <a href="/admin/delete-user/{{this._id}}"
+                            onclick="return confirm('Are you sure want to delete {{this.user-name}} ?')"
+                            class="action-btn"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </td>
+
+                </tr>
+                {{/each}}
+                {{!-- users details looping --}}
+            </tbody>
+        </table>
+    </div>
+    {{!-- container --}}
+</section>
+{{!-- section --}}

@@ -2,93 +2,72 @@ body {
     background-color: #eee;
     font-family: 'poppins', sans-serif;
 }
+
 .cont {
     background-color: white;
     border: 1px solid lightgray;
     border-radius: 10px;
     overflow: hidden;
 }
-.order-head {
+
+.title-head {
     color: grey;
     font-size: 13px;
 }
-.item-table h3 {
+
+.user-table h3 {
     font-size: 20px;
 }
-tbody tr td{
+
+tbody tr td {
     font-size: 15px;
     color: black;
     font-weight: 500;
 }
-.add-btn{
-    background-color: unset;
-    border: 1px solid #dc3545;
-    width: 90px;
-    text-align: center;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    border-radius: 10px;
-}
-.add-btn a{
-    text-decoration: none;
-    color: #dc3545
-}
-.add-btn:hover{
-    background-color: #dc3545;
-}
-.add-btn:hover a{
-    color: white !important;
-}
+
 .action-btn {
     text-decoration: none !important;
     /* background-color:  #f52b07; */
     color: #f52b07 !important;
     width: 40px;
-    padding-top:  0px !important;
+    padding-top: 0px !important;
     /* padding: 5px; */
     text-align: center;
     font-size: 18px;
     border-radius: 10px;
 }
-.action-btn:hover{
+
+.action-btn:hover {
     color: grey !important;
-}
-.action-btn:focus{
-  box-shadow: none;
-}
-td img{
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
 }
 
 /* Media Queries */
 @media only screen and (max-width:768px) {
-    tbody tr td{
+    tbody tr td {
         font-size: 11px;
     }
-    .action-btn{
+
+    .action-btn {
         width: 40px;
         font-size: 11px;
         margin-right: 0 !important;
     }
-    .item-title{
-        padding-top: 48px !important;
+}
+
+@media only screen and (max-width:575px) {
+
+    .table td,
+    .table th {
+        padding: 10px 10px 10px 0;
+    }
+
+    .table th {
+        font-size: 12px !important;
+    }
+
+    .item-btn {
+        font-size: 11px;
     }
 }
 
-@media only screen and (max-width:575px){
-    .table td, .table th{
-        padding: 10px 10px 10px 0;
-    }
-    .table th{
-        font-size: 12px !important;
-    }
-    .item-btn{
-        font-size: 11px;
-    }
-    .item-title{
-        padding-top: 45px !important;
-    }
-}
 /* Media Queries */

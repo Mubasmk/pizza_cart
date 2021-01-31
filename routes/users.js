@@ -178,7 +178,7 @@ router.post('/verify-payment', (req, res) => {
 
 // get users contact page
 router.get('/contact', (req, res) => {
-    res.render('users/contact')
+    res.render('users/contact',{user:req.session.user});
 });
 
 module.exports = router;
