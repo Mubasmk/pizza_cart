@@ -1,0 +1,43 @@
+{{!-- stylesheet for login --}}
+<link rel="stylesheet" href="/stylesheets/user-auth.css">
+{{!-- stylesheet for login --}}
+
+{{!-- login section --}}
+<section>
+    <div class="wrapper fadeInDown">
+            <div id="formContent">
+        <div class="container p-4">
+            <div class="fadeIn first">
+                <img src="/images/pizza_hut_logo-removebg.png" id="icon" alt="brand logo">
+                <h2 id="logo-head">Pizza Hub</h2>
+            </div>
+
+            <form action="/admin/login" method="POST">
+            {{#if logErr}}
+            <p class="error text-danger">{{logErr}}</p>
+            {{/if}}
+                <h3 id="loginTitle">Admin Login</h3>
+                <div class="form-group">
+                    <input type="email" name="Email" class="fadeIn login-input text-center" id="#login-email" placeholder="email" >
+                </div>
+                <div class="form-group">
+                    <input type="password" name="Password" class="fadeIn login-input text-center" id="#login-password" placeholder="password" >
+                </div>
+                <input type="submit" class="fadeIn" value="Log In">
+            </form>
+            {{!-- form --}}
+        </div>
+        {{!-- container --}}
+            
+        </div>
+        {{!-- formContent --}}
+    </div>
+    {{!-- wrapper --}}
+</section>
+{{!-- login section --}}
+
+<style>
+    .navbar{
+        display: none;
+    }
+</style>

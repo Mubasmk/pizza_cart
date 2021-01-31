@@ -69,5 +69,22 @@ module.exports={
             let orders=await db.get().collection(collection.ORDER_COLLECTION).find().toArray();
             resolve(orders);
         });
+    },
+    adminLogin:(adminData)=>{
+        return new Promise(async(resolve,reject)=>{
+            let response={}
+            let status=false;
+            let admin=await db.get().collection(collection.ADMIN_AUTH).findOne({Email:adminData.Email,Password:adminData.Password});
+            if(admin){
+                console.log("admin login success");
+                response.admin=admin;
+                response.status=true;
+                resolve(response);
+            }else{
+                console.log("admin login failed");
+                resolve({status:false});
+            }
+
+        })
     }
 }
