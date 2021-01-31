@@ -94,11 +94,22 @@
 }
 
 /* Media Queries */
-@media only screen and (max-width:450px){
+@media only screen and (max-width:568px){
     .nav-title{
-    font-size: 2em;
-    margin-top: auto;
+        font-size: 2em;
+        margin-top: auto;
     }
+    .navbar-toggler-icon{
+        width: 1em;
+        height: 1em;
+    }
+    .navbar-brand img{
+        width: 70px !important;
+    }
+
+}
+@media only screen and (max-width:450px){
+    
     .nav-title img{
         display: none !important;
     }
@@ -119,9 +130,6 @@
 @media only screen and (min-width:426px) and (max-width:575px){
     #cart-icon{
         margin-right: 10px;
-    }
-    .navbar button{
-        margin-left: 110px;
     }
 }
 

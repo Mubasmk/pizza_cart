@@ -45,9 +45,9 @@
     {{/if}}
     {{!-- partial header --}}
     {{{body}}}
-    {{#if user}}
+    {{#unless admin}}
     {{>user-footer}}
-    {{/if}}
+    {{/unless}}
 
     
     {{!-- bootstrap script --}}
