@@ -36,6 +36,7 @@ function changeQuantity(cartId, proId, userId, count) {
             quantity: quantity
         },
         method: 'post',
+        
         success: (response) => {
             if (response.removeProduct) {
                 $(".remove").toggleClass("removeActive");

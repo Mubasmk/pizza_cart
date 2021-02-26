@@ -1,15 +1,17 @@
+const dotenv=require('dotenv')
 var mongoClient=require('mongodb').MongoClient;
+dotenv.config()
 const state={
     db:null
 };
 //connecting to db
 module.exports.connect=(done)=>{
-    const url="mongodb://localhost/27017";
-    const dbname="pizzaHut";
+    // Database connection
+    const url=process.env.DB_URL;
 
-    mongoClient.connect(url,(err,data)=>{
+    mongoClient.connect(url,{ useUnifiedTopology: true },(err,data)=>{
         if (err) return done(err)
-        state.db=data.db(dbname);
+        state.db=data.db("pizzaHub");
         done();
     });
 };
