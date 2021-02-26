@@ -7,7 +7,7 @@ var hbs=require('express-handlebars');
 var fileUpload=require('express-fileupload');
 var db=require('./config/connection');
 var session=require('express-session');
-const port=5000;
+
 //route setup
 var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
@@ -52,6 +52,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.listen(port, () => console.log("app listening to port ${port}"));
+app.listen(process.env.PORT || 8080 ,()=>{
+  console.log("Server has running successfully !");
+})
 
 module.exports = app;
